@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NEX Debate Organization</title>
+</head>
+<body style="font-family:Arial; text-align:center; background:black; color:white;">
+  <h1>Welcome to NEX</h1>
+  <p>The Future of Debate and Diplomacy</p>
+
+  <button style="padding:10px 20px; font-size:18px;">
+    Register Now
+  </button>
+</body>
+</html>
