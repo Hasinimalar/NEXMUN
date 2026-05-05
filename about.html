@@ -2,106 +2,216 @@
 <html>
 
 <head>
-  <title>NEX Debate Organization</title>
+  <title>About NEX</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f8f1eb;
+color:#5f4b66;
+}
+
+nav{
+width:100%;
+position:fixed;
+top:0;
+left:0;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 40px;
+
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+
+box-sizing:border-box;
+z-index:1000;
+}
+
+.logo{
+font-family:'Great Vibes', cursive;
+font-size:45px;
+color:#c8a2ff;
+}
+
+.navlinks{
+display:flex;
+gap:25px;
+}
+
+.navlinks a{
+text-decoration:none;
+color:#6d597a;
+font-size:16px;
+}
+
+.hero{
+height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+background:
+linear-gradient(rgba(255,255,255,0.3),
+rgba(255,255,255,0.3)),
+url('background.png');
+
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:100px;
+font-family:'Great Vibes', cursive;
+color:#c8a2ff;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:25px;
+width:70%;
+line-height:1.8;
+}
+
+.section{
+padding:100px 12%;
+text-align:center;
+}
+
+.section h2{
+font-size:55px;
+color:#c8a2ff;
+margin-bottom:20px;
+}
+
+.section p{
+font-size:20px;
+line-height:1.9;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:50px;
+}
+
+.statbox{
+background:white;
+padding:40px;
+border-radius:25px;
+width:220px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.statbox h3{
+font-size:45px;
+color:#c8a2ff;
+margin:0;
+}
+
+.statbox p{
+font-size:18px;
+}
+
+</style>
 </head>
 
-<body style="
-background-image: url('background.png');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-background-attachment: fixed;
+<body>
 
-margin: 0;
-min-height: 100vh;
+<nav>
 
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-text-align: center;
-">
-<nav style="
-width: 100%;
-position: fixed;
-top: 0;
-left: 0;
-
-display: flex;
-justify-content: space-between;
-align-items: center;
-
-padding: 18px 40px;
-
-background: rgba(255,255,255,0.18);
-backdrop-filter: blur(10px);
-
-box-sizing: border-box;
-z-index: 1000;
-">
-
-<div style="
-font-family: 'Great Vibes', cursive;
-font-size: 45px;
-color: #c8a2ff;
-">
+<div class="logo">
 NEX
 </div>
 
-<div style="
-display: flex;
-gap: 25px;
-font-size: 16px;
-font-family: Arial;
-padding-right: 20px;
-">
+<div class="navlinks">
 
-<a href="index.html" style="text-decoration:none; color:#6d597a;">Home</a>
-
-<a href="about.html" style="text-decoration:none; color:#6d597a;">About</a>
-
-<a href="events.html" style="text-decoration:none; color:#6d597a;">Events</a>
-
-<a href="contact.html" style="text-decoration:none; color:#6d597a;">Contact</a>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="events.html">Events</a>
+<a href="contact.html">Contact</a>
 
 </div>
 
 </nav>
 
-<h1 style="
-font-family: 'Great Vibes', cursive;
-font-size: 100px;
-color: #C8A2FF;
-text-shadow: 0 0 20px rgba(200,162,255,0.7);
-margin-bottom: 10px;
-">
-NEX
-</h1>
+<div class="hero">
 
-<p style="
-font-size: 24px;
-color: #5f4b66;
-margin-bottom: 40px;
-">
-The Future of Debate and Diplomacy
+<h1>About NEX</h1>
+
+<p>
+Building the next generation of diplomats, speakers, and changemakers through debate, diplomacy, and leadership.
 </p>
-<a href="#about">
-<button style="
-padding: 18px 45px;
-font-size: 18px;
-font-family: Arial;
-color: white;
-background: linear-gradient(135deg, #f5c2ff, #c084fc, #7dd3fc);
-border: none;
-border-radius: 40px;
-cursor: pointer;
-box-shadow: 0 10px 30px rgba(192,132,252,0.4);
-font-weight: 600;
-letter-spacing: 1px;
-">
-✨ Explore NEX
-</button>
-</a>
+
+</div>
+
+<div class="section">
+
+<h2>Our Mission</h2>
+
+<p>
+At NEX, we believe debate is more than competition —
+it is a platform that empowers young minds to think critically, communicate fearlessly, and lead meaningfully.
+
+Our goal is to create a space where students can develop confidence, diplomacy, global awareness, and the courage to express ideas that create impact.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>A Note From The Founder</h2>
+
+<p>
+NEX was founded with a vision to inspire students to move beyond textbooks and become voices of change.
+
+We aim to build a community where every student feels empowered to question, discuss, innovate, and grow into future leaders who can shape the world with empathy and intelligence.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Our Impact</h2>
+
+<div class="stats">
+
+<div class="statbox">
+<h3>500+</h3>
+<p>Delegates Reached</p>
+</div>
+
+<div class="statbox">
+<h3>20+</h3>
+<p>Events Conducted</p>
+</div>
+
+<div class="statbox">
+<h3>15+</h3>
+<p>Partner Schools</p>
+</div>
+
+<div class="statbox">
+<h3>1</h3>
+<p>Shared Vision</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
