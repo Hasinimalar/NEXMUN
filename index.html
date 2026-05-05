@@ -1,224 +1,299 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>NEX Debate Organization</title>
+<title>NEX</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-</head>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<body style="
-background-image: url('background.png');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-background-attachment: fixed;
+<style>
 
-margin: 0;
-min-height: 100vh;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-text-align: center;
-">
-<nav style="
-width: 100%;
-position: fixed;
-top: 0;
-left: 0;
+html{
+scroll-behavior:smooth;
+}
 
-display: flex;
-justify-content: space-between;
-align-items: center;
+body{
+font-family:'Poppins', sans-serif;
 
-padding: 18px 40px;
+background:
+linear-gradient(rgba(255,247,252,0.76),
+rgba(247,241,255,0.76),
+rgba(238,247,255,0.76)),
+url('background.png');
 
-background: rgba(255,255,255,0.18);
-backdrop-filter: blur(10px);
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
 
-box-sizing: border-box;
-z-index: 1000;
-">
+background-blend-mode:soft-light;
 
-<div style="
-font-family: 'Great Vibes', cursive;
-font-size: 45px;
-color: #c8a2ff;
-">
-NEX
-</div>
+overflow-x:hidden;
 
-<div style="
-display: flex;
-gap: 25px;
-font-size: 16px;
-font-family: Arial;
-padding-right: 20px;
-">
+color:#5f4b66;
+}
 
-<a href="index.html" style="text-decoration:none; color:#6d597a;">Home</a>
+nav{
+width:100%;
+position:fixed;
+top:0;
+left:0;
 
-<a href="about.html" style="text-decoration:none; color:#6d597a;">About</a>
+padding:18px 45px;
 
-<a href="events.html" style="text-decoration:none; color:#6d597a;">Events</a>
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(14px);
 
-<a href="contact.html" style="text-decoration:none; color:#6d597a;">Contact</a>
+z-index:1000;
 
-</div>
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-</nav>
-  
-<div style="
+box-shadow:0 8px 30px rgba(0,0,0,0.05);
+}
+
+.logo{
+font-family:'Great Vibes', cursive;
+font-size:45px;
+color:#c8a2ff;
+}
+
+.navlinks{
+display:flex;
+gap:28px;
+}
+
+.navlinks a{
+text-decoration:none;
+color:#6d597a;
+font-weight:500;
+}
+
+.hero{
 min-height:100vh;
+
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding-top:80px;
-box-sizing:border-box;
-">
-<h1 style="
-font-family: 'Great Vibes', cursive;
-font-size: 100px;
-color: #C8A2FF;
-text-shadow: 0 0 20px rgba(200,162,255,0.7);
-margin-bottom: 10px;
-">
-NEX
-</h1>
 
-<p style="
-font-size: 24px;
-color: #5f4b66;
-margin-bottom: 40px;
-">
-The Future of Debate and Diplomacy
-</p>
-<a href="about.html">
-<button style="
-padding: 18px 45px;
-font-size: 18px;
-font-family: Arial;
-color: white;
-background: linear-gradient(135deg, #f5c2ff, #c084fc, #7dd3fc);
-border: none;
-border-radius: 40px;
-cursor: pointer;
-box-shadow: 0 10px 30px rgba(192,132,252,0.4);
-font-weight: 600;
-letter-spacing: 1px;
-">
-✨ Explore NEX
-</button>
-</a>
-</div>
-<div style="
+text-align:center;
+padding:120px 10%;
+
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-family:'Great Vibes', cursive;
+font-size:120px;
+color:#c8a2ff;
+text-shadow:0 0 25px rgba(200,162,255,0.6);
+animation:float 5s ease-in-out infinite;
+}
+
+.hero p{
+font-size:26px;
+margin-top:15px;
+line-height:1.8;
+max-width:850px;
+}
+
+.explore-btn{
+padding:18px 48px;
+margin-top:35px;
+
+border:none;
+border-radius:45px;
+
+background:linear-gradient(135deg,#f5c2ff,#c084fc,#7dd3fc);
+
+color:white;
+font-size:18px;
+font-weight:600;
+
+cursor:pointer;
+
+box-shadow:0 12px 35px rgba(192,132,252,0.35);
+
+transition:0.4s;
+}
+
+.explore-btn:hover{
+transform:translateY(-6px) scale(1.04);
+}
+
+.section{
 padding:120px 10%;
 text-align:center;
-background:rgba(255,255,255,0.75);
-width:100%;
-box-sizing:border-box;
-margin-top:120px;
-">
+}
 
-<h2 style="
-font-size:60px;
-color:#c8a2ff;
-margin-bottom:60px;
+.section-title{
+font-size:70px;
 font-family:'Great Vibes', cursive;
-">
-Our Aims
-</h2>
+color:#c8a2ff;
+margin-bottom:50px;
+}
 
-<div style="
+.cards{
 display:flex;
 justify-content:center;
 gap:35px;
 flex-wrap:wrap;
-">
+}
 
-<div style="
-background:white;
-padding:40px;
-border-radius:30px;
-width:300px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-">
+.card{
+background:rgba(255,255,255,0.68);
+backdrop-filter:blur(14px);
 
-<h3 style="
+padding:45px;
+border-radius:35px;
+
+width:320px;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.06);
+
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-12px);
+}
+
+.card h3{
 font-size:35px;
 color:#c8a2ff;
-">
-Leadership
-</h3>
+margin-bottom:20px;
+}
 
-<p style="
+.card p{
 line-height:1.9;
 font-size:18px;
-">
+}
+
+.quote{
+font-size:34px;
+line-height:1.8;
+max-width:900px;
+margin:auto;
+font-family:'Great Vibes', cursive;
+color:#b78ce8;
+}
+
+.doodle{
+position:fixed;
+opacity:0.16;
+pointer-events:none;
+z-index:0;
+}
+
+.d1{top:120px;left:70px;font-size:70px;animation:spin 12s linear infinite;}
+.d2{top:240px;right:90px;font-size:80px;animation:float 6s ease-in-out infinite;}
+.d3{bottom:120px;left:150px;font-size:75px;animation:spin 15s linear infinite reverse;}
+.d4{bottom:100px;right:140px;font-size:70px;animation:float 7s ease-in-out infinite;}
+.d5{top:55%;left:12%;font-size:45px;animation:float 5s ease-in-out infinite;}
+.d6{top:65%;right:15%;font-size:55px;animation:spin 14s linear infinite;}
+
+@keyframes float{
+0%{transform:translateY(0px);} 
+50%{transform:translateY(-18px);} 
+100%{transform:translateY(0px);} 
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);} 
+100%{transform:rotate(360deg);} 
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">NEX</div>
+
+<div class="navlinks">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="events.html">Events</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<div class="doodle d1">✦</div>
+<div class="doodle d2">☁</div>
+<div class="doodle d3">✿</div>
+<div class="doodle d4">☾</div>
+<div class="doodle d5">♡</div>
+<div class="doodle d6">✧</div>
+
+<div class="hero">
+
+<h1>NEX</h1>
+
+<p>
+The Future of Debate, Diplomacy, Leadership, and Youth Empowerment.
+</p>
+
+<a href="about.html">
+<button class="explore-btn">
+✨ Explore NEX
+</button>
+</a>
+
+</div>
+
+<div class="section">
+
+<h2 class="section-title">Our Aims</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Leadership</h3>
+<p>
 • Develop confident young leaders<br><br>
-
 • Encourage responsible decision-making<br><br>
-
 • Inspire initiative and teamwork
 </p>
-
 </div>
 
-<div style="
-background:white;
-padding:40px;
-border-radius:30px;
-width:300px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-">
-
-<h3 style="
-font-size:35px;
-color:#c8a2ff;
-">
-Diplomacy
-</h3>
-
-<p style="
-line-height:1.9;
-font-size:18px;
-">
+<div class="card">
+<h3>Diplomacy</h3>
+<p>
 • Promote respectful discussion<br><br>
-
-• Build global awareness and understanding<br><br>
-
+• Build global awareness<br><br>
 • Encourage peaceful exchange of ideas
 </p>
-
 </div>
 
-<div style="
-background:white;
-padding:40px;
-border-radius:30px;
-width:300px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-">
-
-<h3 style="
-font-size:35px;
-color:#c8a2ff;
-">
-Communication
-</h3>
-
-<p style="
-line-height:1.9;
-font-size:18px;
-">
-• Strengthen public speaking abilities<br><br>
-
+<div class="card">
+<h3>Communication</h3>
+<p>
+• Strengthen public speaking<br><br>
 • Build confidence in expression<br><br>
-
-• Encourage critical and analytical thinking
+• Encourage analytical thinking
 </p>
-
 </div>
 
 </div>
 
 </div>
+
+<div class="section">
+
+<h2 class="quote">
+“Every great movement begins with a conversation.”
+</h2>
+
+</div>
+
+</body>
+</html>
