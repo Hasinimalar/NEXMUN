@@ -1,1 +1,362 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <title>NEX Events</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins', sans-serif;
+background:linear-gradient(180deg,#fff7fc,#f8f1ff,#eef7ff);
+overflow-x:hidden;
+color:#5f4b66;
+}
+
+nav{
+width:100%;
+position:fixed;
+top:0;
+left:0;
+
+padding:18px 45px;
+
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(12px);
+
+z-index:1000;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-family:'Great Vibes', cursive;
+font-size:45px;
+color:#c8a2ff;
+}
+
+.navlinks{
+display:flex;
+gap:28px;
+}
+
+.navlinks a{
+text-decoration:none;
+color:#6d597a;
+font-size:16px;
+font-weight:500;
+transition:0.3s;
+}
+
+.navlinks a:hover{
+color:#c084fc;
+}
+
+.hero{
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+padding:120px 10%;
+position:relative;
+overflow:hidden;
+}
+
+.hero h1{
+font-size:110px;
+font-family:'Great Vibes', cursive;
+color:#c8a2ff;
+text-shadow:0 0 25px rgba(200,162,255,0.6);
+margin-bottom:20px;
+animation:float 4s ease-in-out infinite;
+}
+
+.hero p{
+font-size:24px;
+line-height:1.8;
+max-width:900px;
+color:#6d597a;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);} 
+50%{transform:translateY(-12px);} 
+100%{transform:translateY(0px);} 
+}
+
+.doodle1,
+.doodle2,
+.doodle3,
+.doodle4{
+position:absolute;
+font-size:80px;
+opacity:0.25;
+animation:spin 12s linear infinite;
+}
+
+.doodle1{
+top:140px;
+left:80px;
+}
+
+.doodle2{
+top:250px;
+right:120px;
+}
+
+.doodle3{
+bottom:140px;
+left:180px;
+}
+
+.doodle4{
+bottom:120px;
+right:160px;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);} 
+100%{transform:rotate(360deg);} 
+}
+
+.section-title{
+font-size:65px;
+font-family:'Great Vibes', cursive;
+text-align:center;
+color:#c8a2ff;
+margin-bottom:70px;
+}
+
+.events-section{
+padding:120px 10%;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.card{
+width:360px;
+
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(18px);
+
+border-radius:35px;
+padding:35px;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+
+transition:0.5s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-15px) scale(1.03);
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+background:linear-gradient(135deg,#f5c2ff,#c084fc,#7dd3fc);
+opacity:0.15;
+border-radius:50%;
+top:-60px;
+right:-60px;
+}
+
+.card h2{
+font-size:34px;
+color:#6d597a;
+margin-bottom:20px;
+position:relative;
+}
+
+.card p{
+font-size:17px;
+line-height:1.9;
+position:relative;
+}
+
+.tag{
+display:inline-block;
+padding:10px 22px;
+margin-top:25px;
+
+border-radius:30px;
+
+background:linear-gradient(135deg,#f5c2ff,#c084fc,#7dd3fc);
+
+color:white;
+font-weight:600;
+font-size:14px;
+
+box-shadow:0 10px 20px rgba(192,132,252,0.25);
+}
+
+.wave{
+margin-top:120px;
+}
+
+.why-section{
+padding:120px 12%;
+text-align:center;
+position:relative;
+}
+
+.why-section p{
+max-width:1000px;
+margin:auto;
+font-size:22px;
+line-height:2;
+color:#6d597a;
+}
+
+.glow{
+position:absolute;
+width:300px;
+height:300px;
+background:#e9c9ff;
+filter:blur(120px);
+opacity:0.35;
+}
+
+.glow1{
+top:50px;
+left:-100px;
+}
+
+.glow2{
+bottom:50px;
+right:-100px;
+background:#bfe8ff;
+}
+
+.footer{
+padding:60px;
+text-align:center;
+font-size:16px;
+color:#8a7a8f;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+NEX
+</div>
+
+<div class="navlinks">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="events.html">Events</a>
+<a href="contact.html">Contact</a>
+</div>
+
+</nav>
+
+<div class="hero">
+
+<div class="doodle1">✦</div>
+<div class="doodle2">☁</div>
+<div class="doodle3">✿</div>
+<div class="doodle4">☾</div>
+
+<h1>Upcoming Events</h1>
+
+<p>
+Join the beginning of the NEX journey through workshops, diplomacy, discussion, creativity, and leadership.
+</p>
+
+</div>
+
+<div class="events-section">
+
+<h2 class="section-title">What’s Coming?</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h2>Introduction to Debate & MUN</h2>
+
+<p>
+A free interactive workshop introducing students to the basics of debating, public speaking, Model United Nations formats, diplomacy, committee procedures, and confidence-building.
+
+Perfect for beginners stepping into the world of debate and MUN.
+</p>
+
+<div class="tag">
+Free Workshop • Coming Soon
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>NEX MUN Conference</h2>
+
+<p>
+NEX is preparing to launch its very first Model United Nations conference featuring engaging agendas, committee simulations, diplomacy challenges, and collaborative discussion.
+
+Committee details and registrations will be released soon.
+</p>
+
+<div class="tag">
+Flagship Event • Launching Soon
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="why-section">
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<h2 class="section-title">Why Join NEX?</h2>
+
+<p>
+NEX events are designed to empower students through communication, diplomacy, confidence, and leadership.
+
+Whether you are a beginner discovering debate for the first time or an experienced delegate looking for meaningful discussion, NEX aims to create a welcoming and inspiring environment where every voice matters.
+</p>
+
+</div>
+
+<div class="footer">
+© NEX Debate Organization — Building Future Voices.
+</div>
+
+</body>
+</html>
