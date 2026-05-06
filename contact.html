@@ -3,6 +3,8 @@
 
 <head>
   <title>Contact NEX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -27,9 +29,24 @@ url('background.png');
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
+background-repeat:no-repeat;
   
 overflow-x:hidden;
 color:#5f4b66;
+  
+animation:fadePage 1s ease;
+
+@keyframes fadePage{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
 }
 
 nav{
@@ -67,10 +84,12 @@ color:#6d597a;
 font-size:16px;
 font-weight:500;
 transition:0.3s;
+display:inline-block;
 }
 
 .navlinks a:hover{
 color:#c084fc;
+transform:translateY(-2px);
 }
 
 .hero{
@@ -211,6 +230,13 @@ font-family:'Poppins', sans-serif;
 box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
+.input-box:focus{
+outline:none;
+box-shadow:0 0 18px rgba(192,132,252,0.25);
+transform:scale(1.01);
+transition:0.3s;
+}
+
 textarea{
 height:180px;
 resize:none;
@@ -288,6 +314,11 @@ font-size:20px;
 /* ================= TABLETS ================= */
 
 @media(max-width:768px){
+  
+body{
+background-attachment:scroll;
+}
+
 
 nav{
 padding:16px 20px;
@@ -488,7 +519,7 @@ Connect with NEX for workshops, collaborations, events, or inquiries.
 
 <input type="hidden" name="_captcha" value="false">
 
-<input type="hidden" name="_next" value="https://hasinimalar.github.io/NEX-WEBSITE/">
+<input type="hidden" name="_next" value="https://hasinimalar.github.io/NEXMUN/contact.html">
 
 <input type="text" name="name" placeholder="Your Name" required class="input-box">
 
@@ -507,11 +538,11 @@ Connect with NEX for workshops, collaborations, events, or inquiries.
 <div class="socials">
 
 <div class="social-card">
-📧ghasinimalar@gmail.com
+📧 ghasinimalar@gmail.com
 </div>
 
 <div class="social-card">
-🌍Theni, India
+🌍 Theni, India
 </div>
 
 <div class="social-card">
