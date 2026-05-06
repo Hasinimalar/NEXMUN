@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>NEX Events</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEX Events</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -23,7 +27,122 @@ font-family:'Poppins', sans-serif;
 background:linear-gradient(180deg,#fff7fc,#f8f1ff,#eef7ff);
 overflow-x:hidden;
 color:#5f4b66;
+position:relative;
 }
+
+/* ================= BACKGROUND ================= */
+
+.bg-animation{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+overflow:hidden;
+z-index:-2;
+}
+
+.bubble{
+position:absolute;
+bottom:-180px;
+border-radius:50%;
+background:rgba(255,255,255,0.3);
+backdrop-filter:blur(10px);
+animation:rise 25s infinite ease-in;
+}
+
+.x1{
+width:120px;
+height:120px;
+left:10%;
+animation-duration:18s;
+}
+
+.x2{
+width:180px;
+height:180px;
+left:25%;
+animation-duration:22s;
+animation-delay:2s;
+}
+
+.x3{
+width:90px;
+height:90px;
+left:45%;
+animation-duration:20s;
+animation-delay:5s;
+}
+
+.x4{
+width:220px;
+height:220px;
+left:65%;
+animation-duration:28s;
+animation-delay:1s;
+}
+
+.x5{
+width:150px;
+height:150px;
+left:80%;
+animation-duration:24s;
+animation-delay:3s;
+}
+
+.x6{
+width:110px;
+height:110px;
+left:55%;
+animation-duration:26s;
+animation-delay:7s;
+}
+
+@keyframes rise{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:0.35;
+}
+
+100%{
+transform:translateY(-130vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+body::before{
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#f0c7ff;
+filter:blur(150px);
+top:-120px;
+left:-120px;
+opacity:0.35;
+z-index:-3;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#bfe8ff;
+filter:blur(150px);
+bottom:-120px;
+right:-120px;
+opacity:0.35;
+z-index:-3;
+}
+
+/* ================= NAVBAR ================= */
 
 nav{
 width:100%;
@@ -60,11 +179,29 @@ color:#6d597a;
 font-size:16px;
 font-weight:500;
 transition:0.3s;
+position:relative;
+}
+
+.navlinks a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#c084fc;
+transition:0.3s;
+}
+
+.navlinks a:hover::after{
+width:100%;
 }
 
 .navlinks a:hover{
 color:#c084fc;
 }
+
+/* ================= HERO ================= */
 
 .hero{
 min-height:100vh;
@@ -94,20 +231,48 @@ font-size:24px;
 line-height:1.8;
 max-width:900px;
 color:#6d597a;
+animation:fadeUp 1.5s ease;
 }
 
 @keyframes float{
-0%{transform:translateY(0px);} 
-50%{transform:translateY(-12px);} 
-100%{transform:translateY(0px);} 
+
+0%{
+transform:translateY(0px);
 }
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ================= DOODLES ================= */
 
 .doodle1,
 .doodle2,
 .doodle3,
-.doodle4{
+.doodle4,
+.doodle5,
+.doodle6{
 position:absolute;
-font-size:80px;
 opacity:0.25;
 animation:spin 12s linear infinite;
 }
@@ -115,27 +280,54 @@ animation:spin 12s linear infinite;
 .doodle1{
 top:140px;
 left:80px;
+font-size:80px;
 }
 
 .doodle2{
 top:250px;
 right:120px;
+font-size:70px;
 }
 
 .doodle3{
 bottom:140px;
 left:180px;
+font-size:75px;
 }
 
 .doodle4{
 bottom:120px;
 right:160px;
+font-size:85px;
+}
+
+.doodle5{
+top:45%;
+left:10%;
+font-size:55px;
+animation-duration:16s;
+}
+
+.doodle6{
+top:60%;
+right:15%;
+font-size:60px;
+animation-duration:18s;
 }
 
 @keyframes spin{
-0%{transform:rotate(0deg);} 
-100%{transform:rotate(360deg);} 
+
+0%{
+transform:rotate(0deg);
 }
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+/* ================= SECTION TITLES ================= */
 
 .section-title{
 font-size:65px;
@@ -144,6 +336,8 @@ text-align:center;
 color:#c8a2ff;
 margin-bottom:70px;
 }
+
+/* ================= EVENTS ================= */
 
 .events-section{
 padding:120px 10%;
@@ -174,6 +368,7 @@ overflow:hidden;
 
 .card:hover{
 transform:translateY(-15px) scale(1.03);
+box-shadow:0 25px 50px rgba(192,132,252,0.2);
 }
 
 .card::before{
@@ -217,9 +412,64 @@ font-size:14px;
 box-shadow:0 10px 20px rgba(192,132,252,0.25);
 }
 
-.wave{
-margin-top:120px;
+/* ================= REGISTER BUTTON ================= */
+
+.register-btn{
+
+padding:16px 38px;
+margin-top:28px;
+
+border:none;
+border-radius:50px;
+
+background:linear-gradient(
+135deg,
+#f5c2ff,
+#c084fc,
+#7dd3fc
+);
+
+background-size:300% 300%;
+
+color:white;
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
+
+box-shadow:0 10px 25px rgba(192,132,252,0.35);
+
+transition:0.4s;
+
+animation:gradientMove 6s ease infinite;
+
 }
+
+.register-btn:hover{
+
+transform:translateY(-6px) scale(1.06);
+
+box-shadow:0 15px 35px rgba(192,132,252,0.45);
+
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* ================= WHY SECTION ================= */
 
 .why-section{
 padding:120px 12%;
@@ -255,6 +505,8 @@ right:-100px;
 background:#bfe8ff;
 }
 
+/* ================= FOOTER ================= */
+
 .footer{
 padding:60px;
 text-align:center;
@@ -262,10 +514,56 @@ font-size:16px;
 color:#8a7a8f;
 }
 
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:70px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.section-title{
+font-size:50px;
+}
+
+.card{
+width:100%;
+}
+
+nav{
+padding:18px 20px;
+}
+
+.navlinks{
+gap:15px;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
+
+<!-- Animated Background -->
+
+<div class="bg-animation">
+
+<div class="bubble x1"></div>
+<div class="bubble x2"></div>
+<div class="bubble x3"></div>
+<div class="bubble x4"></div>
+<div class="bubble x5"></div>
+<div class="bubble x6"></div>
+
+</div>
+
+<!-- NAVBAR -->
 
 <nav>
 
@@ -282,12 +580,16 @@ NEX
 
 </nav>
 
+<!-- HERO -->
+
 <div class="hero">
 
 <div class="doodle1">✦</div>
 <div class="doodle2">☁</div>
 <div class="doodle3">✿</div>
 <div class="doodle4">☾</div>
+<div class="doodle5">♡</div>
+<div class="doodle6">✧</div>
 
 <h1>Upcoming Events</h1>
 
@@ -297,11 +599,15 @@ Join the beginning of the NEX journey through workshops, diplomacy, discussion, 
 
 </div>
 
+<!-- EVENTS -->
+
 <div class="events-section">
 
 <h2 class="section-title">What’s Coming?</h2>
 
 <div class="cards">
+
+<!-- CARD 1 -->
 
 <div class="card">
 
@@ -316,32 +622,14 @@ Perfect for beginners stepping into the world of debate and MUN.
 <div class="tag">
 Free Workshop • Coming Soon
 </div>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHVKfFQstyJyVNWOlSHlDo0MHCs5NxtNsAS2XcPHRCNTha9A/viewform?usp=dialog" target="_blank">
 
-<button style="
-padding:16px 35px;
-margin-top:25px;
+<br>
 
-border:none;
-border-radius:40px;
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdHVKfFQstyJyVNWOlSHlDo0MHCs5NxtNsAS2XcPHRCNTha9A/viewform"
+target="_blank"
+style="text-decoration:none;">
 
-background:linear-gradient(135deg,#f5c2ff,#c084fc,#7dd3fc);
-
-color:white;
-font-size:16px;
-font-weight:600;
-
-cursor:pointer;
-
-box-shadow:0 10px 25px rgba(192,132,252,0.3);
-
-transition:0.4s;
-"
-
-onmouseover="this.style.transform='translateY(-6px) scale(1.04)'"
-onmouseout="this.style.transform='translateY(0px)'"
-
->
+<button class="register-btn" type="button">
 
 ✨ Register Now
 
@@ -350,6 +638,8 @@ onmouseout="this.style.transform='translateY(0px)'"
 </a>
 
 </div>
+
+<!-- CARD 2 -->
 
 <div class="card">
 
@@ -371,6 +661,8 @@ Flagship Event • Launching Soon
 
 </div>
 
+<!-- WHY JOIN -->
+
 <div class="why-section">
 
 <div class="glow glow1"></div>
@@ -385,6 +677,8 @@ Whether you are a beginner discovering debate for the first time or an experienc
 </p>
 
 </div>
+
+<!-- FOOTER -->
 
 <div class="footer">
 © NEX Debate Organization — Building Future Voices.
