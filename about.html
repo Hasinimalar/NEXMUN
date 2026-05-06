@@ -1,8 +1,626 @@
 <!DOCTYPE html>
-<a href="events.html">Events</a>
-<a href="contact.html">Contact</a>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About NEX</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins', sans-serif;
+
+background-image:
+linear-gradient(rgba(255,255,255,0.78),rgba(255,255,255,0.78)),
+url('background.png');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+overflow-x:hidden;
+color:#5f4b66;
+position:relative;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+
+.bg-animation{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+overflow:hidden;
+z-index:-2;
+}
+
+.bubble{
+position:absolute;
+bottom:-180px;
+border-radius:50%;
+background:rgba(255,255,255,0.28);
+backdrop-filter:blur(10px);
+animation:rise 25s infinite ease-in;
+}
+
+.x1{
+width:120px;
+height:120px;
+left:10%;
+animation-duration:18s;
+}
+
+.x2{
+width:180px;
+height:180px;
+left:25%;
+animation-duration:22s;
+animation-delay:2s;
+}
+
+.x3{
+width:90px;
+height:90px;
+left:45%;
+animation-duration:20s;
+animation-delay:5s;
+}
+
+.x4{
+width:220px;
+height:220px;
+left:65%;
+animation-duration:28s;
+animation-delay:1s;
+}
+
+.x5{
+width:150px;
+height:150px;
+left:80%;
+animation-duration:24s;
+animation-delay:3s;
+}
+
+.x6{
+width:110px;
+height:110px;
+left:55%;
+animation-duration:26s;
+animation-delay:7s;
+}
+
+@keyframes rise{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:0.35;
+}
+
+100%{
+transform:translateY(-130vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+body::before{
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#f0c7ff;
+filter:blur(150px);
+top:-120px;
+left:-120px;
+opacity:0.35;
+z-index:-3;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#bfe8ff;
+filter:blur(150px);
+bottom:-120px;
+right:-120px;
+opacity:0.35;
+z-index:-3;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+width:100%;
+padding:18px 45px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+position:fixed;
+top:0;
+left:0;
+
+z-index:1000;
+
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(12px);
+}
+
+.logo{
+font-family:'Great Vibes', cursive;
+font-size:45px;
+color:#c8a2ff;
+}
+
+.nav-links{
+display:flex;
+gap:28px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#6d597a;
+font-size:16px;
+font-weight:500;
+transition:0.3s;
+position:relative;
+}
+
+.nav-links a::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+background:#c084fc;
+left:0;
+bottom:-5px;
+transition:0.3s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+.nav-links a:hover{
+color:#c084fc;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+padding:120px 10%;
+position:relative;
+overflow:hidden;
+}
+
+.hero h1{
+font-size:110px;
+font-family:'Great Vibes', cursive;
+color:#c8a2ff;
+text-shadow:0 0 25px rgba(200,162,255,0.6);
+margin-bottom:20px;
+animation:floatTitle 4s ease-in-out infinite;
+}
+
+.hero p{
+margin-top:10px;
+font-size:24px;
+max-width:850px;
+line-height:1.8;
+color:#6d597a;
+animation:fadeUp 1.5s ease;
+}
+
+/* ================= GLASS SECTION ================= */
+
+.section{
+padding:40px 8% 120px;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:35px;
+position:relative;
+z-index:2;
+}
+
+.glass{
+background:rgba(255,255,255,0.45);
+border:1px solid rgba(255,255,255,0.35);
+
+backdrop-filter:blur(18px);
+
+padding:40px;
+border-radius:35px;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+
+transition:0.5s;
+position:relative;
+overflow:hidden;
+}
+
+.glass:hover{
+transform:translateY(-12px) scale(1.02);
+box-shadow:0 25px 50px rgba(192,132,252,0.18);
+}
+
+.glass::before{
+content:'';
+position:absolute;
+
+width:180px;
+height:180px;
+
+background:linear-gradient(
+135deg,
+#f5c2ff,
+#c084fc,
+#7dd3fc
+);
+
+opacity:0.12;
+border-radius:50%;
+
+top:-60px;
+right:-60px;
+}
+
+.glass h2{
+font-size:34px;
+margin-bottom:22px;
+color:#6d597a;
+position:relative;
+}
+
+.glass p{
+line-height:1.9;
+font-size:16px;
+color:#6d597a;
+position:relative;
+}
+
+/* ================= CONTACT FORM ================= */
+
+.contact-box form{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-top:25px;
+}
+
+input,
+textarea{
+padding:15px 18px;
+
+border:none;
+border-radius:18px;
+outline:none;
+
+background:rgba(255,255,255,0.7);
+
+font-family:'Poppins',sans-serif;
+font-size:15px;
+
+transition:0.3s;
+}
+
+input:focus,
+textarea:focus{
+transform:scale(1.02);
+box-shadow:0 0 18px rgba(192,132,252,0.2);
+}
+
+textarea{
+height:130px;
+resize:none;
+}
+
+button{
+padding:15px;
+
+border:none;
+border-radius:50px;
+
+background:linear-gradient(
+135deg,
+#f5c2ff,
+#c084fc,
+#7dd3fc
+);
+
+background-size:300% 300%;
+
+color:white;
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
+
+transition:0.4s;
+
+box-shadow:0 10px 25px rgba(192,132,252,0.35);
+
+animation:gradientMove 6s ease infinite;
+}
+
+button:hover{
+transform:translateY(-5px) scale(1.04);
+box-shadow:0 15px 35px rgba(192,132,252,0.45);
+}
+
+/* ================= DOODLES ================= */
+
+.doodle{
+position:absolute;
+opacity:0.25;
+pointer-events:none;
+z-index:1;
+animation:float 6s ease-in-out infinite;
+}
+
+.d1{
+top:15%;
+left:10%;
+font-size:80px;
+}
+
+.d2{
+top:25%;
+right:10%;
+font-size:70px;
+animation-delay:1s;
+}
+
+.d3{
+bottom:25%;
+left:15%;
+font-size:75px;
+animation-delay:2s;
+}
+
+.d4{
+bottom:15%;
+right:18%;
+font-size:85px;
+animation-delay:3s;
+}
+
+.d5{
+top:60%;
+left:50%;
+font-size:60px;
+animation-delay:4s;
+}
+
+.d6{
+top:75%;
+right:35%;
+font-size:65px;
+animation-delay:5s;
+}
+
+/* ================= SPARKLES ================= */
+
+.sparkle{
+position:absolute;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite ease-in-out;
+opacity:0.8;
+}
+
+.s1{
+top:20%;
+left:30%;
+}
+
+.s2{
+top:70%;
+left:60%;
+animation-delay:1s;
+}
+
+.s3{
+top:50%;
+left:85%;
+animation-delay:2s;
+}
+
+.s4{
+top:85%;
+left:20%;
+animation-delay:3s;
+}
+
+.s5{
+top:35%;
+left:50%;
+animation-delay:1.5s;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes float{
+
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+
+50%{
+transform:translateY(-20px) rotate(8deg);
+}
+
+100%{
+transform:translateY(0px) rotate(0deg);
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes floatTitle{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+@keyframes twinkle{
+
+0%{
+opacity:0.2;
+transform:scale(0.8);
+}
+
+50%{
+opacity:1;
+transform:scale(1.5);
+}
+
+100%{
+opacity:0.2;
+transform:scale(0.8);
+}
+
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+background:linear-gradient(#f5c2ff,#c084fc,#7dd3fc);
+border-radius:10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:70px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.glass{
+padding:30px;
+}
+
+nav{
+padding:18px 20px;
+}
+
+.nav-links{
+gap:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="bg-animation">
+
+<div class="bubble x1"></div>
+<div class="bubble x2"></div>
+<div class="bubble x3"></div>
+<div class="bubble x4"></div>
+<div class="bubble x5"></div>
+<div class="bubble x6"></div>
+
 </div>
-</nav>
+
+<!-- SPARKLES -->
+
+<div class="sparkle s1"></div>
+<div class="sparkle s2"></div>
+<div class="sparkle s3"></div>
+<div class="sparkle s4"></div>
+<div class="sparkle s5"></div>
+
+<!-- DOODLES -->
 
 <div class="doodle d1">✦</div>
 <div class="doodle d2">☁</div>
@@ -11,17 +629,41 @@
 <div class="doodle d5">♡</div>
 <div class="doodle d6">✧</div>
 
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+NEX
+</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="events.html">Events</a>
+<a href="contact.html">Contact</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
 <div class="hero">
+
 <h1>About NEX</h1>
 
 <p>
 Building the next generation of diplomats, speakers, changemakers, and visionary leaders.
 </p>
+
 </div>
+
+<!-- CONTENT -->
 
 <div class="section">
 
 <div class="glass">
+
 <h2>Our Mission</h2>
 
 <p>
@@ -29,19 +671,25 @@ At NEX, we believe debate is more than competition — it is a transformative pl
 
 Our mission is to cultivate a community where young minds can express ideas openly, engage in global conversations, and develop the confidence to become future leaders.
 </p>
+
 </div>
 
 <div class="glass">
+
 <h2>A Note From The Founder</h2>
 
 <p>
-Hi! this is Hasinimalar Ganeshkumar- The Founder of NEX!NEX was founded with the vision of creating a platform where students can discover the power of communication, diplomacy, and leadership.
+Hi! This is Hasinimalar Ganeshkumar — The Founder of NEX.
+
+NEX was founded with the vision of creating a platform where students can discover the power of communication, diplomacy, and leadership.
 
 We aim to build an inspiring environment where every student feels heard, valued, and empowered to create meaningful impact through ideas and discussion.
 </p>
+
 </div>
 
 <div class="glass contact-box">
+
 <h2>Get In Touch</h2>
 
 <p>
@@ -56,7 +704,9 @@ Have a question or feedback? Our team is here to help!
 
 <textarea placeholder="Your Message" required></textarea>
 
-<button type="submit">✨ Send Message</button>
+<button type="submit">
+✨ Send Message
+</button>
 
 </form>
 
