@@ -490,44 +490,166 @@ color:#7f6d86;
 
 /* ================= MOBILE ================= */
 
-@media(max-width:768px){
+@media(max-width:1024px){
 
 .hero h1{
-font-size:75px;
+font-size:82px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+.section-title{
+font-size:58px;
+}
+
+.section-text{
+font-size:19px;
+line-height:2;
+}
+
+}
+
+/* ================= TABLETS ================= */
+
+@media(max-width:768px){
+
+nav{
+padding:16px 20px;
+flex-direction:column;
+gap:12px;
+}
+
+.logo{
+font-size:40px;
+}
+
+.nav-links{
+gap:16px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.nav-links a{
+font-size:14px;
+}
+
+.hero{
+padding:140px 8% 80px;
+}
+
+.hero h1{
+font-size:62px;
+line-height:1.1;
 }
 
 .hero p{
 font-size:18px;
+line-height:1.8;
+max-width:100%;
+}
+
+.content-section,
+.contact-section{
+padding:90px 8%;
 }
 
 .section-title{
-font-size:52px;
+font-size:48px;
+margin-bottom:28px;
 }
 
 .section-text{
-font-size:18px;
+font-size:17px;
 padding:30px;
+line-height:2;
+border-radius:28px;
 }
 
 .contact-form{
 padding:30px;
+border-radius:28px;
 }
 
-nav{
-padding:18px 20px;
+input,
+textarea{
+font-size:15px;
+padding:15px;
 }
 
-.nav-links{
-gap:15px;
+button{
+width:100%;
+font-size:16px;
+padding:16px;
+}
+
+.footer{
+padding:40px 20px;
+font-size:14px;
+}
+
+.d1,.d2,.d3,.d4,.d5{
+font-size:45px !important;
 }
 
 }
 
-</style>
+/* ================= SMALL PHONES ================= */
 
-</head>
+@media(max-width:480px){
 
-<body>
+.logo{
+font-size:34px;
+}
+
+.hero{
+min-height:90vh;
+padding-top:170px;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.hero p{
+font-size:16px;
+line-height:1.7;
+}
+
+.section-title{
+font-size:40px;
+}
+
+.section-text{
+font-size:15px;
+padding:24px;
+line-height:1.9;
+}
+
+.contact-form{
+padding:24px;
+}
+
+input,
+textarea{
+font-size:14px;
+}
+
+button{
+font-size:15px;
+padding:15px;
+}
+
+.footer{
+font-size:13px;
+}
+
+.d5{
+display:none;
+}
+
+}
 
 <!-- FLOATING BUBBLES -->
 
