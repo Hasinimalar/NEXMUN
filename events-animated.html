@@ -1,0 +1,2192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta name="description" content="NEX is a student-led debate and Model United Nations organization focused on leadership, diplomacy, public speaking, and youth empowerment.">
+
+<meta name="keywords" content="NEX, debate, MUN, Model United Nations, public speaking, leadership, diplomacy, student organization">
+
+<meta name="author" content="Hasinimalar Ganeshkumar">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="nex logo.png">
+
+<title>NEX Events | NEXMUN Youth Forum 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:
+linear-gradient(
+rgba(255,255,255,0.38),
+rgba(255,255,255,0.38)
+),
+url('background.png');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+overflow-x:hidden;
+
+color:#5f4b66;
+
+position:relative;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.bg-animation{
+
+position:fixed;
+
+width:100%;
+height:100%;
+
+top:0;
+left:0;
+
+overflow:hidden;
+
+z-index:-2;
+}
+
+.bubble{
+
+position:absolute;
+
+bottom:-180px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,0.32);
+
+backdrop-filter:blur(10px);
+
+animation:rise 25s infinite ease-in;
+}
+
+.x1{
+width:120px;
+height:120px;
+left:10%;
+animation-duration:18s;
+}
+
+.x2{
+width:180px;
+height:180px;
+left:25%;
+animation-duration:22s;
+animation-delay:2s;
+}
+
+.x3{
+width:90px;
+height:90px;
+left:45%;
+animation-duration:20s;
+animation-delay:5s;
+}
+
+.x4{
+width:220px;
+height:220px;
+left:65%;
+animation-duration:28s;
+animation-delay:1s;
+}
+
+.x5{
+width:150px;
+height:150px;
+left:80%;
+animation-duration:24s;
+animation-delay:3s;
+}
+
+.x6{
+width:110px;
+height:110px;
+left:55%;
+animation-duration:26s;
+animation-delay:7s;
+}
+
+@keyframes rise{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:0.35;
+}
+
+100%{
+transform:translateY(-130vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+body::before{
+
+content:'';
+
+position:fixed;
+
+width:500px;
+height:500px;
+
+background:#e6c5ff;
+
+filter:blur(160px);
+
+top:-180px;
+left:-150px;
+
+opacity:0.38;
+
+z-index:-3;
+}
+
+body::after{
+
+content:'';
+
+position:fixed;
+
+width:500px;
+height:500px;
+
+background:#b9eaff;
+
+filter:blur(160px);
+
+bottom:-180px;
+right:-150px;
+
+opacity:0.32;
+
+z-index:-3;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+
+width:100%;
+
+position:fixed;
+
+top:0;
+left:0;
+
+padding:18px 50px;
+
+background:rgba(255,255,255,0.24);
+
+backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(255,255,255,0.35);
+
+z-index:1000;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+}
+
+.logo{
+
+font-family:'Great Vibes',cursive;
+
+font-size:45px;
+
+color:#c8a2ff;
+
+text-shadow:
+0 0 20px rgba(200,162,255,0.45);
+}
+
+.navlinks{
+
+display:flex;
+
+gap:32px;
+}
+
+.navlinks a{
+
+text-decoration:none;
+
+color:#6d597a;
+
+font-size:15px;
+
+font-weight:500;
+
+transition:0.3s;
+
+position:relative;
+}
+
+.navlinks a::after{
+
+content:'';
+
+position:absolute;
+
+left:50%;
+
+bottom:-7px;
+
+width:0;
+
+height:2px;
+
+background:#c084fc;
+
+transition:0.35s;
+
+transform:translateX(-50%);
+}
+
+.navlinks a:hover{
+
+color:#c084fc;
+}
+
+.navlinks a:hover::after{
+
+width:100%;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:140px 8% 100px;
+
+position:relative;
+
+overflow:hidden;
+}
+
+.hero-small{
+
+font-size:13px;
+
+letter-spacing:7px;
+
+font-weight:600;
+
+color:#c084fc;
+
+margin-bottom:25px;
+
+animation:fadeUp 1s ease;
+}
+
+.hero h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:125px;
+
+font-weight:400;
+
+color:#c8a2ff;
+
+line-height:1;
+
+text-shadow:
+
+0 0 25px rgba(200,162,255,0.55),
+
+0 0 70px rgba(192,132,252,0.25);
+
+animation:float 4s ease-in-out infinite;
+}
+
+.hero h2{
+
+font-family:'DM Serif Display',serif;
+
+font-size:42px;
+
+font-weight:400;
+
+color:#6d597a;
+
+margin-top:15px;
+
+animation:fadeUp 1.4s ease;
+}
+
+.hero p{
+
+font-size:19px;
+
+line-height:1.9;
+
+max-width:800px;
+
+color:#6d597a;
+
+margin-top:25px;
+
+animation:fadeUp 1.7s ease;
+}
+
+.hero-scroll{
+
+margin-top:55px;
+
+font-size:12px;
+
+letter-spacing:4px;
+
+color:#9a86a1;
+
+animation:pulse 2s infinite;
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(35px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes pulse{
+
+0%,100%{
+opacity:0.45;
+}
+
+50%{
+opacity:1;
+}
+
+}
+
+
+/* =====================================================
+   DOODLES
+===================================================== */
+
+.doodle{
+
+position:absolute;
+
+opacity:0.2;
+
+animation:spin 15s linear infinite;
+}
+
+.d1{
+
+top:18%;
+
+left:7%;
+
+font-size:75px;
+}
+
+.d2{
+
+top:28%;
+
+right:9%;
+
+font-size:65px;
+
+animation-duration:18s;
+}
+
+.d3{
+
+bottom:18%;
+
+left:12%;
+
+font-size:65px;
+
+animation-duration:20s;
+}
+
+.d4{
+
+bottom:14%;
+
+right:13%;
+
+font-size:80px;
+
+animation-duration:17s;
+}
+
+.d5{
+
+top:52%;
+
+left:6%;
+
+font-size:48px;
+
+animation-duration:13s;
+}
+
+.d6{
+
+top:60%;
+
+right:8%;
+
+font-size:55px;
+
+animation-duration:19s;
+}
+
+@keyframes spin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+
+/* =====================================================
+   CONFERENCE SECTION
+===================================================== */
+
+.conference-section{
+
+padding:110px 6% 150px;
+
+position:relative;
+}
+
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.conference-header{
+
+text-align:center;
+
+max-width:1000px;
+
+margin:0 auto 75px;
+}
+
+.eyebrow{
+
+font-size:13px;
+
+letter-spacing:6px;
+
+font-weight:600;
+
+color:#c084fc;
+
+margin-bottom:20px;
+}
+
+.conference-header h2{
+
+font-family:'DM Serif Display',serif;
+
+font-size:65px;
+
+font-weight:400;
+
+color:#6d597a;
+
+line-height:1.2;
+}
+
+.script-word{
+
+font-family:'Great Vibes',cursive;
+
+font-size:75px;
+
+color:#c8a2ff;
+
+display:block;
+
+margin-top:-8px;
+}
+
+.conference-header p{
+
+font-size:18px;
+
+line-height:2;
+
+max-width:850px;
+
+margin:25px auto 0;
+
+color:#6d597a;
+}
+
+
+/* =====================================================
+   MAIN GLASS PANEL
+===================================================== */
+
+.conference-showcase{
+
+max-width:1250px;
+
+margin:auto;
+
+padding:70px;
+
+border-radius:55px;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(255,255,255,0.72),
+rgba(255,255,255,0.43)
+);
+
+backdrop-filter:blur(30px);
+
+border:1px solid rgba(255,255,255,0.8);
+
+box-shadow:
+
+0 35px 90px rgba(78,57,91,0.10),
+
+0 0 100px rgba(192,132,252,0.10);
+
+position:relative;
+
+overflow:hidden;
+}
+
+.conference-showcase::before{
+
+content:'';
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:#e5c8ff;
+
+filter:blur(150px);
+
+opacity:0.3;
+
+top:-300px;
+
+right:-170px;
+}
+
+.conference-showcase::after{
+
+content:'';
+
+position:absolute;
+
+width:400px;
+height:400px;
+
+background:#c6edff;
+
+filter:blur(140px);
+
+opacity:0.28;
+
+bottom:-260px;
+
+left:-170px;
+}
+
+
+/* =====================================================
+   CONFERENCE TITLE
+===================================================== */
+
+.conference-main{
+
+text-align:center;
+
+max-width:950px;
+
+margin:auto;
+
+position:relative;
+
+z-index:2;
+}
+
+.conference-year{
+
+font-size:15px;
+
+letter-spacing:10px;
+
+font-weight:600;
+
+color:#c084fc;
+
+margin-bottom:18px;
+}
+
+.conference-main h3{
+
+font-family:'Great Vibes',cursive;
+
+font-size:90px;
+
+font-weight:400;
+
+color:#6d597a;
+
+line-height:1;
+}
+
+.conference-main p{
+
+font-size:18px;
+
+line-height:2;
+
+max-width:850px;
+
+margin:25px auto 0;
+
+color:#6d597a;
+}
+
+
+/* =====================================================
+   PREMIUM STATISTICS
+===================================================== */
+
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:18px;
+
+margin-top:75px;
+
+position:relative;
+
+z-index:2;
+}
+
+.stat-card{
+
+min-height:230px;
+
+padding:35px 22px;
+
+border-radius:32px;
+
+background:rgba(255,255,255,0.54);
+
+border:1px solid rgba(255,255,255,0.85);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+transition:0.45s;
+
+position:relative;
+
+overflow:hidden;
+}
+
+.stat-card::after{
+
+content:'';
+
+position:absolute;
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+background:#ead6ff;
+
+filter:blur(45px);
+
+right:-60px;
+
+top:-60px;
+
+opacity:0.6;
+}
+
+.stat-card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:
+
+0 25px 50px rgba(192,132,252,0.16);
+}
+
+.stat-number{
+
+font-size:58px;
+
+font-weight:700;
+
+line-height:1;
+
+color:#c084fc;
+
+position:relative;
+
+z-index:2;
+}
+
+.stat-rating{
+
+display:flex;
+
+align-items:center;
+
+gap:5px;
+
+font-size:17px;
+
+margin-top:12px;
+
+color:#c084fc;
+
+}
+
+.stat-title{
+
+font-size:17px;
+
+font-weight:600;
+
+color:#6d597a;
+
+margin-top:12px;
+
+position:relative;
+
+z-index:2;
+}
+
+.stat-card p{
+
+font-size:12px;
+
+line-height:1.65;
+
+color:#82738a;
+
+margin-top:10px;
+
+position:relative;
+
+z-index:2;
+}
+
+
+/* =====================================================
+   COMMITTEES
+===================================================== */
+
+.committee-section{
+
+margin-top:85px;
+
+text-align:center;
+
+position:relative;
+
+z-index:2;
+}
+
+.committee-section h4{
+
+font-family:'DM Serif Display',serif;
+
+font-size:34px;
+
+font-weight:400;
+
+color:#6d597a;
+
+margin-bottom:30px;
+}
+
+.committee-list{
+
+display:flex;
+
+justify-content:center;
+
+gap:14px;
+
+flex-wrap:wrap;
+}
+
+.committee-list span{
+
+padding:13px 25px;
+
+border-radius:50px;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(245,194,255,0.9),
+rgba(192,132,252,0.9),
+rgba(125,211,252,0.9)
+);
+
+color:white;
+
+font-size:12px;
+
+font-weight:600;
+
+letter-spacing:0.5px;
+
+box-shadow:
+
+0 10px 25px rgba(192,132,252,0.18);
+
+transition:0.4s;
+}
+
+.committee-list span:hover{
+
+transform:translateY(-6px) scale(1.04);
+}
+
+
+/* =====================================================
+   EXPERIENCE
+===================================================== */
+
+.moments-title{
+
+text-align:center;
+
+font-family:'Great Vibes',cursive;
+
+font-size:60px;
+
+font-weight:400;
+
+color:#c8a2ff;
+
+margin-top:90px;
+
+margin-bottom:35px;
+}
+
+.experience-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:22px;
+
+position:relative;
+
+z-index:2;
+}
+
+.experience-card{
+
+padding:38px 28px;
+
+border-radius:32px;
+
+background:rgba(255,255,255,0.46);
+
+border:1px solid rgba(255,255,255,0.7);
+
+text-align:center;
+
+transition:0.4s;
+}
+
+.experience-card:hover{
+
+transform:translateY(-8px);
+
+background:rgba(255,255,255,0.62);
+
+box-shadow:
+
+0 20px 40px rgba(192,132,252,0.10);
+}
+
+.experience-icon{
+
+font-size:36px;
+
+margin-bottom:18px;
+}
+
+.experience-card h4{
+
+font-family:'DM Serif Display',serif;
+
+font-size:25px;
+
+font-weight:400;
+
+color:#6d597a;
+
+margin-bottom:12px;
+}
+
+.experience-card p{
+
+font-size:14px;
+
+line-height:1.85;
+
+color:#7b6d82;
+}
+
+
+/* =====================================================
+   CONFERENCE STORY
+===================================================== */
+
+.story-section{
+
+max-width:950px;
+
+margin:80px auto 0;
+
+padding:50px 45px;
+
+border-radius:38px;
+
+background:rgba(255,255,255,0.42);
+
+border:1px solid rgba(255,255,255,0.7);
+
+text-align:center;
+
+position:relative;
+
+z-index:2;
+}
+
+.story-section h4{
+
+font-family:'DM Serif Display',serif;
+
+font-size:32px;
+
+font-weight:400;
+
+color:#6d597a;
+
+margin-bottom:18px;
+}
+
+.story-section p{
+
+font-size:16px;
+
+line-height:2;
+
+color:#7b6d82;
+}
+
+
+/* =====================================================
+   FINAL STATEMENT
+===================================================== */
+
+.conference-ending{
+
+text-align:center;
+
+margin-top:80px;
+
+padding-top:50px;
+
+border-top:1px solid rgba(109,89,122,0.15);
+
+position:relative;
+
+z-index:2;
+}
+
+.conference-ending .large{
+
+font-family:'DM Serif Display',serif;
+
+font-size:24px;
+
+color:#6d597a;
+}
+
+.conference-ending .script{
+
+font-family:'Great Vibes',cursive;
+
+font-size:55px;
+
+color:#c084fc;
+
+margin-top:5px;
+}
+
+
+/* =====================================================
+   WHY NEX
+===================================================== */
+
+.why-section{
+
+padding:120px 12%;
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+}
+
+.why-section h2{
+
+font-family:'Great Vibes',cursive;
+
+font-size:70px;
+
+font-weight:400;
+
+color:#c8a2ff;
+
+margin-bottom:30px;
+}
+
+.why-section p{
+
+max-width:1000px;
+
+margin:auto;
+
+font-size:20px;
+
+line-height:2;
+
+color:#6d597a;
+}
+
+.glow{
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+border-radius:50%;
+
+filter:blur(130px);
+
+opacity:0.28;
+}
+
+.glow1{
+
+background:#e9c9ff;
+
+top:0;
+
+left:-150px;
+}
+
+.glow2{
+
+background:#bfe8ff;
+
+bottom:0;
+
+right:-150px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+padding:60px 20px;
+
+text-align:center;
+
+font-size:14px;
+
+letter-spacing:0.5px;
+
+color:#8a7a8f;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1000px){
+
+.hero h1{
+font-size:90px;
+}
+
+.conference-header h2{
+font-size:55px;
+}
+
+.script-word{
+font-size:65px;
+}
+
+.conference-showcase{
+padding:45px;
+}
+
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.experience-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+nav{
+
+padding:15px 20px;
+
+flex-direction:column;
+
+gap:10px;
+}
+
+.logo{
+font-size:38px;
+}
+
+.navlinks{
+
+gap:18px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+}
+
+.navlinks a{
+font-size:13px;
+}
+
+.hero{
+
+padding:150px 7% 80px;
+}
+
+.hero-small{
+
+font-size:10px;
+
+letter-spacing:4px;
+}
+
+.hero h1{
+
+font-size:65px;
+}
+
+.hero h2{
+
+font-size:28px;
+}
+
+.hero p{
+
+font-size:16px;
+
+line-height:1.8;
+}
+
+.hero-scroll{
+font-size:9px;
+}
+
+.doodle{
+opacity:0.12;
+}
+
+.conference-section{
+
+padding:80px 5%;
+}
+
+.conference-header h2{
+
+font-size:43px;
+}
+
+.script-word{
+
+font-size:52px;
+}
+
+.conference-header p{
+
+font-size:15px;
+
+line-height:1.8;
+}
+
+.conference-showcase{
+
+padding:28px 20px;
+
+border-radius:32px;
+}
+
+.conference-year{
+
+font-size:12px;
+
+letter-spacing:6px;
+}
+
+.conference-main h3{
+
+font-size:60px;
+}
+
+.conference-main p{
+
+font-size:15px;
+
+line-height:1.85;
+}
+
+.stats-grid{
+
+grid-template-columns:1fr;
+
+gap:15px;
+
+margin-top:50px;
+}
+
+.stat-card{
+
+min-height:200px;
+}
+
+.stat-number{
+
+font-size:50px;
+}
+
+.committee-section{
+
+margin-top:60px;
+}
+
+.committee-section h4{
+
+font-size:28px;
+}
+
+.committee-list span{
+
+font-size:10px;
+
+padding:10px 16px;
+}
+
+.moments-title{
+
+font-size:45px;
+
+margin-top:65px;
+}
+
+.experience-card{
+
+padding:30px 22px;
+}
+
+.story-section{
+
+padding:35px 22px;
+
+margin-top:60px;
+}
+
+.story-section h4{
+
+font-size:27px;
+}
+
+.story-section p{
+
+font-size:14px;
+
+line-height:1.9;
+}
+
+.conference-ending{
+
+margin-top:55px;
+}
+
+.conference-ending .large{
+
+font-size:18px;
+}
+
+.conference-ending .script{
+
+font-size:40px;
+}
+
+.why-section{
+
+padding:80px 7%;
+}
+
+.why-section h2{
+
+font-size:50px;
+}
+
+.why-section p{
+
+font-size:16px;
+
+line-height:1.9;
+}
+
+.footer{
+
+font-size:12px;
+
+padding:40px 20px;
+}
+
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media(max-width:420px){
+
+.hero h1{
+font-size:53px;
+}
+
+.hero h2{
+font-size:25px;
+}
+
+.conference-header h2{
+font-size:38px;
+}
+
+.script-word{
+font-size:47px;
+}
+
+.conference-main h3{
+font-size:51px;
+}
+
+.stat-number{
+font-size:44px;
+}
+
+.experience-icon{
+font-size:30px;
+}
+
+.d3,
+.d4,
+.d5,
+.d6{
+display:none;
+}
+
+}
+
+
+/* =====================================================
+   ADVANCED JOURNEY ANIMATIONS
+===================================================== */
+.reveal-on-scroll{
+  opacity:0;
+  transform:translateY(34px) scale(.985);
+  filter:blur(4px);
+  transition:opacity .8s ease, transform .8s cubic-bezier(.2,.75,.2,1), filter .8s ease;
+  transition-delay:var(--reveal-delay, 0ms);
+}
+.reveal-on-scroll.is-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
+.stat-card{
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.stat-card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(125deg,rgba(255,255,255,.95),rgba(192,132,252,.55),rgba(125,211,252,.5),rgba(255,255,255,.9));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .4s ease;
+}
+.stat-card:hover::before{opacity:1}
+.stat-number{font-variant-numeric:tabular-nums; text-shadow:0 0 22px rgba(192,132,252,.12)}
+.stat-card.is-counting .stat-number{animation:numberGlow 1.1s ease-in-out}
+@keyframes numberGlow{
+  0%,100%{text-shadow:0 0 0 rgba(192,132,252,0)}
+  50%{text-shadow:0 0 24px rgba(192,132,252,.55)}
+}
+.experience-card{position:relative;overflow:hidden}
+.experience-card::before{
+  content:"";
+  position:absolute;
+  top:-100%;left:-45%;
+  width:45%;height:300%;
+  transform:rotate(24deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  transition: left .8s ease;
+  pointer-events:none;
+}
+.experience-card:hover::before{left:130%}
+.journey-timeline{
+  max-width:1050px;
+  margin:85px auto 15px;
+  padding:48px 38px;
+  border-radius:38px;
+  background:rgba(255,255,255,.38);
+  border:1px solid rgba(255,255,255,.72);
+  backdrop-filter:blur(22px);
+  position:relative;
+  z-index:2;
+  overflow:hidden;
+}
+.journey-timeline h4{
+  font:400 38px 'DM Serif Display',serif;
+  color:#6d597a;
+  text-align:center;
+  margin-bottom:12px;
+}
+.journey-timeline .timeline-intro{
+  text-align:center;
+  color:#7b6d82;
+  line-height:1.8;
+  max-width:650px;
+  margin:0 auto 42px;
+}
+.timeline-track{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.timeline-track::before{
+  content:"";
+  position:absolute;top:16px;left:12%;right:12%;height:2px;
+  background:linear-gradient(90deg,#e8caff,#c084fc,#9bdcf7);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1.4s ease .25s;
+}
+.journey-timeline.is-visible .timeline-track::before{transform:scaleX(1)}
+.timeline-step{position:relative;padding-top:43px;text-align:center}
+.timeline-dot{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:22px;height:22px;border-radius:50%;
+  background:#c084fc;border:5px solid rgba(255,255,255,.95);
+  box-shadow:0 0 0 5px rgba(192,132,252,.16),0 0 24px rgba(192,132,252,.5);
+  z-index:1;
+}
+.timeline-step h5{font:400 24px 'DM Serif Display',serif;color:#6d597a;margin-bottom:10px}
+.timeline-step p{font-size:13px;line-height:1.85;color:#7b6d82}
+.timeline-kicker{
+  display:inline-block;margin-bottom:12px;padding:6px 12px;border-radius:30px;
+  background:rgba(192,132,252,.13);color:#a06ad8;font-size:10px;font-weight:700;letter-spacing:1.4px;
+}
+@media(max-width:700px){
+  .journey-timeline{padding:35px 22px;margin-top:60px}
+  .journey-timeline h4{font-size:30px}
+  .timeline-track{grid-template-columns:1fr;gap:25px}
+  .timeline-track::before{top:12px;bottom:12px;left:10px;right:auto;width:2px;height:auto;transform:scaleY(0);transform-origin:top}
+  .journey-timeline.is-visible .timeline-track::before{transform:scaleY(1)}
+  .timeline-step{text-align:left;padding:0 0 0 42px;min-height:90px}
+  .timeline-dot{top:3px;left:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+  .reveal-on-scroll{opacity:1;transform:none;filter:none}
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="bg-animation">
+
+<div class="bubble x1"></div>
+<div class="bubble x2"></div>
+<div class="bubble x3"></div>
+<div class="bubble x4"></div>
+<div class="bubble x5"></div>
+<div class="bubble x6"></div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav>
+
+<div class="logo">
+NEX
+</div>
+
+<div class="navlinks">
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="events.html">Events</a>
+
+<a href="contact.html">Contact</a>
+
+</div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="doodle d1">✦</div>
+<div class="doodle d2">☁</div>
+<div class="doodle d3">✿</div>
+<div class="doodle d4">☾</div>
+<div class="doodle d5">♡</div>
+<div class="doodle d6">✧</div>
+
+<div class="hero-small">
+NEX • EVENTS • 2026
+</div>
+
+<h1>
+Our Journey
+</h1>
+
+<h2>
+One Conference. A New Beginning.
+</h2>
+
+<p>
+From an idea to a community of young voices —
+NEXMUN Youth Forum 2026 marked the first major
+milestone in the NEX journey.
+</p>
+
+<div class="hero-scroll">
+SCROLL TO EXPLORE
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONFERENCE
+===================================================== -->
+
+<section class="conference-section">
+
+
+<div class="conference-header">
+
+<div class="eyebrow">
+THE FIRST CHAPTER
+</div>
+
+<h2>
+Where the Journey
+<span class="script-word">
+Began
+</span>
+</h2>
+
+<p>
+NEXMUN Youth Forum 2026 was the beginning of something
+bigger. It brought together students from different
+backgrounds and gave them a platform to debate,
+represent, negotiate and lead.
+</p>
+
+</div>
+
+
+<div class="conference-showcase">
+
+
+<!-- CONFERENCE INTRO -->
+
+<div class="conference-main">
+
+<div class="conference-year">
+AUGUST • 2026
+</div>
+
+<h3>
+NEXMUN Youth Forum
+</h3>
+
+<p>
+Our inaugural Model United Nations conference transformed
+the NEX vision into a real experience — bringing together
+<strong>200 delegates</strong> across four distinctive
+committees for two days of discussion, diplomacy,
+representation and collaboration.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<div class="stats-grid">
+
+
+<div class="stat-card">
+
+<div class="stat-number">
+200
+</div>
+
+<div class="stat-title">
+Delegates
+</div>
+
+<p>
+Young voices who stepped forward to represent,
+debate and lead.
+</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-number">
+4
+</div>
+
+<div class="stat-title">
+Committees
+</div>
+
+<p>
+Four unique committee environments built around
+different forms of debate and diplomacy.
+</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-number">
+4.11
+</div>
+
+<div class="stat-rating">
+★★★★★
+</div>
+
+<div class="stat-title">
+Mymun Rating
+</div>
+
+<p>
+An overall participant rating reflecting the
+conference experience.
+</p>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-number">
+2
+</div>
+
+<div class="stat-title">
+Conference Days
+</div>
+
+<p>
+Two days of committee sessions, discussion,
+negotiation and collaboration.
+</p>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     COMMITTEES
+===================================================== -->
+
+<div class="committee-section">
+
+<h4>
+Four Worlds of Debate
+</h4>
+
+<div class="committee-list">
+
+<span>
+AIPPM
+</span>
+
+<span>
+UNEP
+</span>
+
+<span>
+JCC
+</span>
+
+<span>
+MINISTRY OF MAGIC
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<div class="moments-title">
+The NEXMUN Experience
+</div>
+
+
+<div class="experience-grid">
+
+
+<div class="experience-card">
+
+<div class="experience-icon">
+🎤
+</div>
+
+<h4>
+Debate
+</h4>
+
+<p>
+Delegates questioned ideas, defended positions,
+challenged perspectives and found their voice
+through structured debate.
+</p>
+
+</div>
+
+
+<div class="experience-card">
+
+<div class="experience-icon">
+🌍
+</div>
+
+<h4>
+Diplomacy
+</h4>
+
+<p>
+From negotiation to collaboration, delegates
+experienced the strategic thinking and communication
+at the heart of diplomacy.
+</p>
+
+</div>
+
+
+<div class="experience-card">
+
+<div class="experience-icon">
+🏆
+</div>
+
+<h4>
+Recognition
+</h4>
+
+<p>
+Outstanding delegates and chairs were recognised
+for their preparation, participation, performance
+and contribution to their committees.
+</p>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     STORY
+===================================================== -->
+
+<div class="story-section">
+
+<h4>
+More Than Numbers
+</h4>
+
+<p>
+Behind every statistic was a student who chose to speak,
+listen, question and participate. NEXMUN Youth Forum 2026
+was not simply a conference measured by delegates or
+committees — it was the beginning of a community built
+around curiosity, confidence, diplomacy and leadership.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     ENDING
+===================================================== -->
+
+
+<!-- =====================================================
+     THE NEX JOURNEY TIMELINE
+===================================================== -->
+<section class="journey-timeline reveal-on-scroll" aria-labelledby="journey-timeline-title">
+  <h4 id="journey-timeline-title">A Journey in the Making</h4>
+  <p class="timeline-intro">Every first begins with an idea. These milestones tell the story of how the NEX vision moved towards its first conference.</p>
+  <div class="timeline-track">
+    <article class="timeline-step">
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <span class="timeline-kicker">THE VISION</span>
+      <h5>An Idea Takes Shape</h5>
+      <p>NEX began with a vision to create more spaces for young people to debate, express ideas and build confidence.</p>
+    </article>
+    <article class="timeline-step">
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <span class="timeline-kicker">THE PREPARATION</span>
+      <h5>Building the First Chapter</h5>
+      <p>Planning, teamwork and preparation brought the first NEXMUN experience closer to reality.</p>
+    </article>
+    <article class="timeline-step">
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <span class="timeline-kicker">AUGUST 2026</span>
+      <h5>NEXMUN Youth Forum</h5>
+      <p>The first major milestone: students came together for committee discussions, debate, negotiation and collaboration.</p>
+    </article>
+  </div>
+</section>
+
+
+<div class="conference-ending">
+
+<div class="large">
+200 delegates. 4 committees. 1 beginning.
+</div>
+
+<div class="script">
+And the journey continues...
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY NEX
+===================================================== -->
+
+<section class="why-section">
+
+<div class="glow glow1"></div>
+
+<div class="glow glow2"></div>
+
+<h2>
+Why NEX?
+</h2>
+
+<p>
+NEX creates spaces where young people can communicate,
+question, collaborate and lead. Every event is designed
+to move beyond competition and create experiences that
+help students discover the power of their own voice.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+© NEX Debate Organization — Building Future Voices.
+
+</div>
+
+
+
+<script>
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal sections/cards as they enter the viewport, with a small stagger.
+  const revealItems = document.querySelectorAll(
+    '.conference-header, .conference-showcase, .stat-card, .committee-section, ' +
+    '.experience-card, .story-section, .journey-timeline, .conference-ending, .why-section'
+  );
+
+  revealItems.forEach((item, index) => {
+    item.classList.add('reveal-on-scroll');
+    if (item.classList.contains('stat-card') || item.classList.contains('experience-card')) {
+      item.style.setProperty('--reveal-delay', `${(index % 4) * 100}ms`);
+    }
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(item => item.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -45px 0px' });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+  }
+
+  // Count each statistic up once when its card becomes visible.
+  const numberElements = document.querySelectorAll('.stat-number');
+  const animateCounter = (element) => {
+    if (element.dataset.counted === 'true') return;
+    element.dataset.counted = 'true';
+
+    const raw = element.textContent.trim().replace(/,/g, '');
+    const target = Number(raw);
+    if (!Number.isFinite(target)) return;
+
+    if (reduceMotion) {
+      element.textContent = raw;
+      return;
+    }
+
+    const decimals = (raw.split('.')[1] || '').length;
+    const duration = 1500;
+    const startTime = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = target * eased;
+      element.textContent = current.toFixed(decimals);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        element.textContent = target.toFixed(decimals);
+        element.closest('.stat-card')?.classList.add('is-counting');
+      }
+    };
+    element.textContent = (0).toFixed(decimals);
+    requestAnimationFrame(step);
+  };
+
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+
+    numberElements.forEach(element => counterObserver.observe(element));
+  } else {
+    numberElements.forEach(animateCounter);
+  }
+
+  // Gentle pointer tilt on desktop only; disabled on touch/reduced-motion devices.
+  if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.stat-card').forEach(card => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(900px) rotateX(${y * -5}deg) rotateY(${x * 6}deg) translateY(-8px)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+
+</html>
