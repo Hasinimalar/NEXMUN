@@ -7,12 +7,12 @@
 
     <meta name="description" content="Celebrate the outstanding delegates of NEX Debate Organization through the NEX Awards Gallery.">
 
+    <meta name="theme-color" content="#F5EEFF">
     <title>Awards Gallery | NEX Debate Organization</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -22,8 +22,12 @@
             --pale: #F5EEFF;
             --text: #382B49;
             --muted: #796B89;
-            --border: rgba(150, 101, 212, 0.22);
-            --glass: rgba(255, 255, 255, 0.76);
+            --border: rgba(150, 101, 212, .22);
+            --glass: rgba(255, 255, 255, .78);
+            --pink: #F5A6D7;
+            --gold: #FFD166;
+            --mint: #B8F2E6;
+            --blue: #A7C7FF;
         }
 
         * {
@@ -43,74 +47,253 @@
             min-height: 100vh;
             overflow-x: hidden;
             background:
-                radial-gradient(ellipse at 8% 12%,
-                    rgba(215, 190, 255, 0.42), transparent 38%),
-                radial-gradient(ellipse at 90% 42%,
-                    rgba(233, 218, 255, 0.56), transparent 38%),
+                radial-gradient(ellipse at 8% 12%, rgba(215,190,255,.42), transparent 38%),
+                radial-gradient(ellipse at 90% 42%, rgba(233,218,255,.56), transparent 38%),
+                linear-gradient(145deg, #FCFAFF, #F6F0FF, #FFFAFF);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            background-image:
+                radial-gradient(circle, rgba(200,162,255,.22) 1px, transparent 1.5px);
+            background-size: 29px 29px;
+            opacity: .4;
+        }
+
+        body.celebration-active {
+            background:
+                radial-gradient(ellipse at 10% 10%, rgba(245,166,215,.28), transparent 35%),
+                radial-gradient(ellipse at 90% 40%, rgba(200,162,255,.4), transparent 38%),
                 linear-gradient(145deg, #FCFAFF, #F6F0FF, #FFFAFF);
         }
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
-        /* Floating decorations */
+        button {
+            font: inherit;
+        }
 
-        .doodle {
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid var(--purple);
+            outline-offset: 5px;
+        }
+
+        /* FLOATING BACKGROUND DOODLES */
+
+        .background-doodles {
             position: fixed;
-            z-index: -1;
+            inset: 0;
+            overflow: hidden;
             pointer-events: none;
-            color: rgba(150, 101, 212, 0.19);
-            animation: float 7s ease-in-out infinite;
+            z-index: -1;
         }
 
-        .doodle.one {
-            top: 20%;
-            left: 4%;
-            font-size: 38px;
+        .background-doodle {
+            position: absolute;
+            color: rgba(150,101,212,.17);
+            animation: backgroundFloat 9s ease-in-out infinite;
         }
 
-        .doodle.two {
-            top: 58%;
-            right: 5%;
-            font-size: 44px;
+        .background-doodle:nth-child(1) {
+            top: 16%;
+            left: 8%;
+            font-size: 42px;
+        }
+
+        .background-doodle:nth-child(2) {
+            top: 36%;
+            right: 9%;
+            font-size: 34px;
             animation-delay: -3s;
         }
 
-        .doodle.three {
-            bottom: 12%;
-            left: 8%;
+        .background-doodle:nth-child(3) {
+            top: 72%;
+            left: 12%;
             font-size: 30px;
-            animation-delay: -1.5s;
+            animation-delay: -5s;
         }
 
-        @keyframes float {
+        .background-doodle:nth-child(4) {
+            top: 83%;
+            right: 12%;
+            font-size: 44px;
+            animation-delay: -2s;
+        }
+
+        .background-doodle:nth-child(5) {
+            top: 55%;
+            left: 48%;
+            font-size: 24px;
+            animation-delay: -4s;
+        }
+
+        @keyframes backgroundFloat {
             0%, 100% {
-                transform: translateY(0) rotate(0);
+                transform: translateY(0) rotate(-10deg);
             }
             50% {
-                transform: translateY(-17px) rotate(10deg);
+                transform: translateY(-24px) rotate(14deg);
             }
         }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
+        /* INTERACTIVE DOODLE BUTTONS */
+
+        .party-doodle {
+            position: fixed;
+            z-index: 200;
+            display: grid;
+            place-items: center;
+            width: 54px;
+            height: 54px;
+            border: 1px solid rgba(255,255,255,.95);
+            border-radius: 50%;
+            background: rgba(255,255,255,.82);
+            box-shadow: 0 8px 28px rgba(117,77,170,.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            cursor: pointer;
+            font-size: 29px;
+            color: var(--purple);
+            -webkit-tap-highlight-color: transparent;
+            animation: doodleFloat 4.5s ease-in-out infinite;
+            transition: background .25s, box-shadow .25s;
+        }
+
+        .party-doodle:hover {
+            background: #F0E3FF;
+            box-shadow: 0 0 28px rgba(200,162,255,.8);
+        }
+
+        .party-doodle:active {
+            transform: scale(.85);
+        }
+
+        .doodle-one {
+            top: 22%;
+            left: 17px;
+        }
+
+        .doodle-two {
+            top: 45%;
+            right: 18px;
+            animation-delay: -1.2s;
+        }
+
+        .doodle-three {
+            bottom: 20%;
+            left: 22px;
+            animation-delay: -2.1s;
+        }
+
+        .doodle-four {
+            bottom: 12%;
+            right: 23px;
+            animation-delay: -.8s;
+        }
+
+        @keyframes doodleFloat {
+            0%, 100% {
+                translate: 0 0;
+                rotate: -8deg;
             }
-            to {
+            50% {
+                translate: 0 -15px;
+                rotate: 10deg;
+            }
+        }
+
+        /* CONFETTI PARTICLES */
+
+        .confetti-piece {
+            position: fixed;
+            z-index: 9999;
+            left: var(--start-x);
+            top: var(--start-y);
+            width: var(--piece-width, 8px);
+            height: var(--piece-height, 13px);
+            border-radius: var(--piece-radius, 2px);
+            background: var(--piece-color);
+            pointer-events: none;
+            will-change: transform, opacity;
+            animation: confettiBlast var(--duration) cubic-bezier(.12,.65,.25,1) forwards;
+        }
+
+        @keyframes confettiBlast {
+            0% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translate(-50%,-50%) scale(.3) rotate(0);
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform:
+                    translate(
+                        calc(-50% + var(--move-x)),
+                        calc(-50% + var(--move-y))
+                    )
+                    rotate(var(--rotation))
+                    scale(.75);
             }
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .party-burst-emoji {
+            position: fixed;
+            z-index: 9998;
+            pointer-events: none;
+            font-size: 38px;
+            filter: drop-shadow(0 5px 8px rgba(100,60,130,.15));
+            animation: popperBlast .9s ease-out forwards;
         }
 
-        /* Navigation */
+        @keyframes popperBlast {
+            0% {
+                opacity: 0;
+                transform: translate(-50%,-50%) scale(.2) rotate(-25deg);
+            }
+            35% {
+                opacity: 1;
+                transform: translate(-50%,-70%) scale(1.5) rotate(12deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%,-150%) scale(.7) rotate(30deg);
+            }
+        }
+
+        .floating-celebration {
+            position: fixed;
+            z-index: 9997;
+            pointer-events: none;
+            font-size: 25px;
+            animation: floatAway 1.8s ease-out forwards;
+        }
+
+        @keyframes floatAway {
+            0% {
+                opacity: 0;
+                transform: translate(-50%,0) scale(.5) rotate(-20deg);
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%,-140px) scale(1.4) rotate(35deg);
+            }
+        }
+
+        /* NAVIGATION */
 
         nav {
             position: sticky;
@@ -123,12 +306,12 @@
             align-items: center;
             justify-content: space-between;
             gap: 20px;
-            background: rgba(255, 255, 255, 0.78);
-            border: 1px solid rgba(255, 255, 255, 0.9);
+            background: rgba(255,255,255,.82);
+            border: 1px solid rgba(255,255,255,.95);
             border-radius: 22px;
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-            box-shadow: 0 8px 32px rgba(103, 70, 145, 0.09);
+            box-shadow: 0 8px 32px rgba(103,70,145,.09);
         }
 
         .logo {
@@ -137,6 +320,12 @@
             line-height: 1.1;
             color: var(--lavender);
             white-space: nowrap;
+            transition: transform .3s, color .3s;
+        }
+
+        .logo:hover {
+            color: var(--purple);
+            transform: rotate(-5deg) scale(1.08);
         }
 
         .navlinks {
@@ -152,7 +341,7 @@
             color: #554567;
             font-size: 13px;
             font-weight: 500;
-            transition: color 0.25s ease;
+            transition: color .25s;
         }
 
         .navlinks a::after {
@@ -164,7 +353,7 @@
             height: 2px;
             background: var(--purple);
             border-radius: 5px;
-            transition: width 0.25s ease;
+            transition: width .25s;
         }
 
         .navlinks a:hover,
@@ -177,33 +366,55 @@
             width: 100%;
         }
 
-        /* Hero */
+        /* HERO */
 
         .hero {
+            position: relative;
             width: min(1000px, calc(100% - 36px));
             margin: auto;
-            padding: 100px 0 65px;
+            padding: 95px 0 58px;
             text-align: center;
-            animation: fadeUp 0.9s ease both;
+            animation: heroEntrance 1s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        @keyframes heroEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(35px) scale(.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .eyebrow {
             display: inline-block;
-            padding: 8px 17px;
+            padding: 9px 18px;
             margin-bottom: 24px;
             border: 1px solid var(--border);
             border-radius: 100px;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255,255,255,.76);
             color: var(--deep-purple);
             font-size: 11px;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
+            animation: eyebrowGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes eyebrowGlow {
+            0%, 100% {
+                box-shadow: 0 0 0 rgba(200,162,255,0);
+            }
+            50% {
+                box-shadow: 0 0 23px rgba(200,162,255,.38);
+            }
         }
 
         .hero h1 {
             font-size: clamp(38px, 6vw, 72px);
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -2px;
             line-height: 1.2;
             margin-bottom: 22px;
@@ -212,6 +423,16 @@
         .hero h1 span {
             display: block;
             color: var(--purple);
+            background: linear-gradient(100deg, #8050C5, #C08BFA, #9565D4, #D39EEB);
+            background-size: 250% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: titleShimmer 6s linear infinite;
+        }
+
+        @keyframes titleShimmer {
+            to { background-position: 250% center; }
         }
 
         .hero p {
@@ -227,8 +448,10 @@
             justify-content: center;
             align-items: center;
             gap: 13px;
-            margin-top: 32px;
+            margin-top: 30px;
             color: var(--purple);
+            font-size: 24px;
+            animation: twinkle 2s ease-in-out infinite;
         }
 
         .hero-decoration span {
@@ -241,7 +464,69 @@
             transform: rotate(180deg);
         }
 
-        /* Conference navigation */
+        @keyframes twinkle {
+            0%, 100% { opacity: .65; scale: 1; }
+            50% { opacity: 1; scale: 1.13; }
+        }
+
+        /* CELEBRATION BUTTON */
+
+        .celebrate-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            padding: 16px 27px;
+            border: 1px solid rgba(255,255,255,.9);
+            border-radius: 100px;
+            background: linear-gradient(115deg, #8D5BD0, #C08BFA, #E3B5FF, #9565D4);
+            background-size: 250% 250%;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 28px rgba(141,91,208,.25);
+            animation: buttonShimmer 5s ease infinite, buttonEntrance 1s .3s both;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        @keyframes buttonShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes buttonEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .celebrate-btn:hover {
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 17px 36px rgba(141,91,208,.38);
+        }
+
+        .celebrate-btn:active {
+            transform: scale(.96);
+        }
+
+        .button-sparkle {
+            display: inline-block;
+            animation: buttonSparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes buttonSparkle {
+            0%, 100% { transform: rotate(0) scale(1); }
+            50% { transform: rotate(18deg) scale(1.3); }
+        }
+
+        /* CONFERENCE QUICK LINKS */
 
         .conference-nav {
             width: min(1000px, calc(100% - 36px));
@@ -256,27 +541,26 @@
             padding: 11px 19px;
             border: 1px solid var(--border);
             border-radius: 100px;
-            background: rgba(255, 255, 255, 0.72);
+            background: rgba(255,255,255,.76);
             color: var(--deep-purple);
             font-size: 12px;
             font-weight: 500;
-            transition: 0.25s ease;
+            transition: .3s;
         }
 
         .conference-nav a:hover {
             background: var(--deep-purple);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 7px 18px rgba(86, 53, 129, 0.15);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(86,53,129,.18);
         }
 
-        /* Conference sections */
+        /* CONFERENCE SECTIONS */
 
         .conference-section {
             width: min(1120px, calc(100% - 36px));
             margin: 0 auto 85px;
             scroll-margin-top: 110px;
-            animation: fadeUp 0.8s ease both;
         }
 
         .conference-header {
@@ -286,11 +570,22 @@
             margin-bottom: 30px;
             border-radius: 25px;
             background:
-                radial-gradient(circle at 90% 10%,
-                    rgba(255, 255, 255, 0.48), transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(255,255,255,.55), transparent 30%),
                 linear-gradient(125deg, #E9D8FF, #F8F1FF 65%, #E7D5FF);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 12px 35px rgba(101, 69, 144, 0.08);
+            border: 1px solid rgba(255,255,255,.95);
+            box-shadow: 0 12px 35px rgba(101,69,144,.08);
+            isolation: isolate;
+        }
+
+        .conference-header::before {
+            content: "✦";
+            position: absolute;
+            right: 85px;
+            bottom: -45px;
+            z-index: -1;
+            color: rgba(117,77,170,.11);
+            font-size: 160px;
+            animation: slowSpin 22s linear infinite;
         }
 
         .conference-header::after {
@@ -298,9 +593,14 @@
             position: absolute;
             right: 35px;
             top: 10px;
-            color: rgba(117, 77, 170, 0.18);
+            color: rgba(117,77,170,.2);
             font-size: 100px;
             line-height: 1;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes slowSpin {
+            to { transform: rotate(360deg); }
         }
 
         .conference-label {
@@ -318,7 +618,7 @@
             z-index: 1;
             font-size: clamp(25px, 4vw, 37px);
             line-height: 1.35;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 10px;
             overflow-wrap: anywhere;
         }
@@ -342,7 +642,7 @@
 
         .awards-heading h3 {
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .awards-heading span {
@@ -350,11 +650,11 @@
             font-size: 11px;
         }
 
-        /* Committee cards */
+        /* WINNER CARDS */
 
         .awards-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0,1fr));
             gap: 22px;
         }
 
@@ -367,15 +667,32 @@
             padding: 25px;
             overflow: hidden;
             background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255,255,255,.98);
             border-radius: 22px;
-            box-shadow: 0 10px 32px rgba(101, 69, 144, 0.07);
+            box-shadow: 0 10px 32px rgba(101,69,144,.07);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            cursor: pointer;
             transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
-            animation: fadeUp 0.7s ease both;
+                transform .35s cubic-bezier(.2,.8,.2,1),
+                box-shadow .35s,
+                border-color .35s;
+            animation: cardEntrance .8s cubic-bezier(.2,.8,.2,1) both;
+        }
+
+        .award-card:nth-child(2) { animation-delay: .12s; }
+        .award-card:nth-child(3) { animation-delay: .24s; }
+        .award-card:nth-child(4) { animation-delay: .36s; }
+
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(35px) scale(.94);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .award-card::before {
@@ -385,24 +702,47 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(
-                180deg,
-                var(--lavender),
-                var(--purple)
-            );
+            background: linear-gradient(180deg, var(--lavender), var(--purple), var(--pink));
             transform: scaleY(0);
             transform-origin: bottom;
-            transition: transform 0.3s ease;
+            transition: transform .35s;
+        }
+
+        .award-card::after {
+            content: "✦";
+            position: absolute;
+            top: 9px;
+            right: 15px;
+            color: rgba(149,101,212,0);
+            font-size: 25px;
+            transition: color .3s, transform .4s;
         }
 
         .award-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px rgba(101, 69, 144, 0.13);
-            border-color: rgba(166, 128, 220, 0.45);
+            transform: translateY(-9px) rotate(-.5deg);
+            box-shadow:
+                0 20px 45px rgba(101,69,144,.15),
+                0 0 0 2px rgba(200,162,255,.16);
+            border-color: rgba(166,128,220,.5);
         }
 
         .award-card:hover::before {
             transform: scaleY(1);
+        }
+
+        .award-card:hover::after {
+            color: var(--lavender);
+            transform: rotate(90deg) scale(1.25);
+        }
+
+        .award-card.celebrating {
+            animation: winnerCelebration .55s ease;
+        }
+
+        @keyframes winnerCelebration {
+            0%, 100% { scale: 1; }
+            35% { scale: 1.045; }
+            70% { scale: .985; }
         }
 
         .award-icon {
@@ -414,12 +754,13 @@
             border-radius: 17px;
             background: linear-gradient(135deg, #EAD9FF, #F9F3FF);
             color: var(--deep-purple);
-            font-size: 25px;
-            transition: transform 0.3s ease;
+            font-size: 27px;
+            transition: transform .35s, background .35s;
         }
 
         .award-card:hover .award-icon {
-            transform: rotate(-7deg) scale(1.05);
+            transform: rotate(-10deg) scale(1.12);
+            background: linear-gradient(135deg, #F5D8FF, #EAD9FF, #FFF4D6);
         }
 
         .award-info {
@@ -430,7 +771,7 @@
         .committee-name {
             color: var(--muted);
             font-size: 10px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1.4px;
             text-transform: uppercase;
             margin-bottom: 7px;
@@ -439,7 +780,7 @@
         .award-title {
             color: var(--deep-purple);
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.5;
             margin-bottom: 7px;
         }
@@ -453,62 +794,54 @@
 
         .award-divider {
             width: 36px;
-            height: 2px;
+            height: 3px;
             margin-top: 13px;
             border-radius: 5px;
-            background: var(--lavender);
+            background: linear-gradient(90deg, var(--lavender), var(--pink));
+            transition: width .35s;
         }
 
-        /* Empty state for a future conference */
-
-        .empty-state {
-            padding: 36px 22px;
-            border: 1px dashed rgba(151, 113, 204, 0.42);
-            border-radius: 22px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.48);
+        .award-card:hover .award-divider {
+            width: 75px;
         }
 
-        .empty-state .star {
-            color: var(--purple);
-            font-size: 30px;
-            margin-bottom: 10px;
+        /* SCROLL REVEALS */
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(28px) scale(.985);
+            transition:
+                opacity .8s ease,
+                transform .8s cubic-bezier(.2,.75,.25,1);
         }
 
-        .empty-state h3 {
-            font-size: 18px;
-            margin-bottom: 9px;
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
-        .empty-state p {
-            max-width: 520px;
-            margin: 0 auto;
-            color: var(--muted);
-            font-size: 12px;
-            line-height: 1.9;
-        }
-
-        /* Closing section */
+        /* CLOSING SECTION */
 
         .closing {
+            position: relative;
+            overflow: hidden;
             width: min(900px, calc(100% - 36px));
             margin: 0 auto 85px;
             padding: 48px 28px;
             text-align: center;
-            background: linear-gradient(
-                135deg,
-                rgba(235, 220, 255, 0.82),
-                rgba(255, 255, 255, 0.8)
-            );
-            border: 1px solid rgba(255, 255, 255, 0.95);
+            background:
+                radial-gradient(circle at 10% 20%, rgba(245,166,215,.22), transparent 35%),
+                linear-gradient(135deg, rgba(235,220,255,.88), rgba(255,255,255,.86));
+            border: 1px solid rgba(255,255,255,.98);
             border-radius: 28px;
-            box-shadow: 0 12px 35px rgba(101, 69, 144, 0.07);
+            box-shadow: 0 12px 35px rgba(101,69,144,.07);
         }
 
         .closing .star {
             color: var(--purple);
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 12px;
+            animation: twinkle 2s ease-in-out infinite;
         }
 
         .closing h2 {
@@ -524,13 +857,13 @@
             line-height: 1.9;
         }
 
-        /* Footer */
+        /* FOOTER */
 
         footer {
             padding: 30px 20px;
             text-align: center;
             border-top: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.42);
+            background: rgba(255,255,255,.52);
         }
 
         .footer-logo {
@@ -538,6 +871,11 @@
             font-size: 36px;
             color: var(--lavender);
             margin-bottom: 7px;
+            transition: color .3s;
+        }
+
+        .footer-logo:hover {
+            color: var(--purple);
         }
 
         footer p {
@@ -557,31 +895,20 @@
         .footer-links a {
             color: #665479;
             font-size: 11px;
+            transition: color .25s;
         }
 
         .footer-links a:hover {
             color: var(--purple);
         }
 
-        /* Responsive design */
+        /* RESPONSIVE */
 
         @media (max-width: 850px) {
-            nav {
-                padding: 12px 18px;
-            }
-
-            .navlinks {
-                gap: 14px;
-            }
-
-            .awards-grid {
-                gap: 16px;
-            }
-
-            .award-card {
-                padding: 21px;
-                gap: 15px;
-            }
+            nav { padding: 12px 18px; }
+            .navlinks { gap: 14px; }
+            .awards-grid { gap: 16px; }
+            .award-card { padding: 21px; gap: 15px; }
         }
 
         @media (max-width: 620px) {
@@ -593,79 +920,93 @@
                 border-radius: 18px;
             }
 
-            .logo {
-                font-size: 40px;
-            }
+            .logo { font-size: 40px; }
 
             .navlinks {
                 justify-content: center;
                 gap: 12px 17px;
             }
 
-            .navlinks a {
-                font-size: 12px;
-            }
+            .navlinks a { font-size: 12px; }
 
-            .hero {
-                padding: 65px 0 48px;
-            }
+            .hero { padding: 65px 0 48px; }
+            .hero h1 { letter-spacing: -1px; }
+            .hero p { font-size: 13px; }
 
-            .hero h1 {
-                letter-spacing: -1px;
-            }
-
-            .hero p {
-                font-size: 13px;
-            }
-
-            .conference-nav {
-                margin-bottom: 40px;
-            }
+            .conference-nav { margin-bottom: 40px; }
 
             .conference-nav a {
                 padding: 9px 13px;
                 font-size: 11px;
             }
 
-            .conference-header {
-                padding: 26px 22px;
-            }
+            .conference-header { padding: 26px 22px; }
 
             .conference-header::after {
                 right: 12px;
                 font-size: 75px;
             }
 
-            .awards-grid {
-                grid-template-columns: 1fr;
+            .awards-grid { grid-template-columns: 1fr; }
+
+            .award-card { padding: 23px; }
+
+            .closing { padding: 38px 22px; }
+
+            .party-doodle {
+                width: 43px;
+                height: 43px;
+                font-size: 23px;
             }
 
-            .award-card {
-                padding: 23px;
-            }
-
-            .closing {
-                padding: 38px 22px;
-            }
+            .doodle-one { left: 7px; }
+            .doodle-two { right: 7px; }
+            .doodle-three { left: 7px; }
+            .doodle-four { right: 7px; }
         }
 
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
             *::after {
-                animation-duration: 0.01ms !important;
+                animation-duration: .01ms !important;
                 animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                transition-duration: .01ms !important;
                 scroll-behavior: auto !important;
+            }
+
+            .scroll-reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
             }
         }
     </style>
 </head>
 
 <body>
-    <span class="doodle one" aria-hidden="true">✧</span>
-    <span class="doodle two" aria-hidden="true">✦</span>
-    <span class="doodle three" aria-hidden="true">♡</span>
+
+    <!-- BACKGROUND DOODLES -->
+    <div class="background-doodles" aria-hidden="true">
+        <span class="background-doodle">✧</span>
+        <span class="background-doodle">♡</span>
+        <span class="background-doodle">✦</span>
+        <span class="background-doodle">✿</span>
+        <span class="background-doodle">✧</span>
+    </div>
+
+    <!-- INTERACTIVE DOODLES: TAP OR CLICK TO CELEBRATE -->
+    <button class="party-doodle doodle-one" type="button"
+            aria-label="Launch a star confetti celebration">✦</button>
+
+    <button class="party-doodle doodle-two" type="button"
+            aria-label="Launch a heart confetti celebration">♡</button>
+
+    <button class="party-doodle doodle-three" type="button"
+            aria-label="Launch a sparkle confetti celebration">✧</button>
+
+    <button class="party-doodle doodle-four" type="button"
+            aria-label="Launch a party popper celebration">🎉</button>
 
     <!-- NAVIGATION -->
     <nav aria-label="Main navigation">
@@ -687,13 +1028,14 @@
 
         <h1>
             Celebrating
-            <span>Excellence & Achievement</span>
+            <span>Excellence &amp; Achievement</span>
         </h1>
 
         <p>
             Behind every remarkable conference are delegates who research,
             reason, negotiate, and speak with purpose. This gallery honours
             the outstanding achievements of our conference participants.
+            Every achievement deserves a moment to shine!
         </p>
 
         <div class="hero-decoration" aria-hidden="true">
@@ -701,28 +1043,26 @@
             ✧
             <span></span>
         </div>
+
+        <button class="celebrate-btn" id="celebrateBtn" type="button">
+            <span class="button-sparkle" aria-hidden="true">✦</span>
+            Celebrate Our Winners!
+            <span class="button-sparkle" aria-hidden="true">🎉</span>
+        </button>
     </header>
 
     <!-- CONFERENCE QUICK LINKS -->
     <div class="conference-nav" id="conferenceNav">
         <a href="#nexmun-youth-forum-2026">
-            NEXMUN Youth Forum 2026
+            ✧ NEXMUN Youth Forum 2026
         </a>
-
-        <!-- Add a quick link here for each future conference. -->
     </div>
 
     <main id="awardsGallery">
 
-        <!-- ==================================================
-             CONFERENCE 1: NEXMUN YOUTH FORUM 2026
-             Add new conference sections below this one.
-        =================================================== -->
+        <!-- NEXMUN YOUTH FORUM 2026 -->
+        <section class="conference-section" id="nexmun-youth-forum-2026">
 
-        <section
-            class="conference-section"
-            id="nexmun-youth-forum-2026"
-        >
             <div class="conference-header">
                 <div class="conference-label">
                     Conference Awards · 2026
@@ -732,12 +1072,13 @@
 
                 <p>
                     Recognising the Best Delegates for their contributions
-                    across the conference committees.
+                    across the conference committees. Congratulations to
+                    every winner for this achievement!
                 </p>
             </div>
 
             <div class="awards-heading">
-                <h3>Best Delegate Awards</h3>
+                <h3>🏆 Best Delegate Awards</h3>
                 <span>4 committee awards</span>
             </div>
 
@@ -745,60 +1086,48 @@
 
                 <!-- UNEP -->
                 <article class="award-card">
-                    <div class="award-icon" aria-hidden="true">✧</div>
+                    <div class="award-icon" aria-hidden="true">🏆</div>
 
                     <div class="award-info">
                         <div class="committee-name">UNEP</div>
-
                         <h4 class="award-title">Best Delegate</h4>
-
                         <p class="winner-name">Andrei Stefaneanu</p>
-
                         <div class="award-divider"></div>
                     </div>
                 </article>
 
                 <!-- AIPPM -->
                 <article class="award-card">
-                    <div class="award-icon" aria-hidden="true">✧</div>
+                    <div class="award-icon" aria-hidden="true">🏆</div>
 
                     <div class="award-info">
                         <div class="committee-name">AIPPM</div>
-
                         <h4 class="award-title">Best Delegate</h4>
-
                         <p class="winner-name">Kanak Thakur</p>
-
                         <div class="award-divider"></div>
                     </div>
                 </article>
 
                 <!-- MOM -->
                 <article class="award-card">
-                    <div class="award-icon" aria-hidden="true">✧</div>
+                    <div class="award-icon" aria-hidden="true">🏆</div>
 
                     <div class="award-info">
                         <div class="committee-name">MOM</div>
-
                         <h4 class="award-title">Best Delegate</h4>
-
                         <p class="winner-name">Sameera</p>
-
                         <div class="award-divider"></div>
                     </div>
                 </article>
 
                 <!-- JCC -->
                 <article class="award-card">
-                    <div class="award-icon" aria-hidden="true">✧</div>
+                    <div class="award-icon" aria-hidden="true">🏆</div>
 
                     <div class="award-info">
                         <div class="committee-name">JCC</div>
-
                         <h4 class="award-title">Best Delegate</h4>
-
                         <p class="winner-name">Dharnesh V.</p>
-
                         <div class="award-divider"></div>
                     </div>
                 </article>
@@ -807,59 +1136,16 @@
         </section>
 
         <!--
-        ==================================================
         FUTURE CONFERENCE TEMPLATE
 
-        To add another conference:
-        1. Copy this entire template.
-        2. Give it a unique section ID.
-        3. Update the conference title and description.
-        4. Add one award-card for each real award recipient.
-        5. Add its ID as a link in conferenceNav above.
+        When a future conference has confirmed results:
+        1. Copy the conference section above.
+        2. Give the new section a unique ID.
+        3. Change the conference name and year.
+        4. Update each committee, award title, and winner name.
+        5. Add a matching quick link in conferenceNav.
 
-        Example section ID: nexmun-2027
-        Do not leave the template uncommented until you
-        have real results to publish.
-        ==================================================
-
-        <section class="conference-section" id="nexmun-2027">
-            <div class="conference-header">
-                <div class="conference-label">
-                    Conference Awards · 2027
-                </div>
-
-                <h2>YOUR CONFERENCE NAME</h2>
-
-                <p>
-                    Celebrating the achievements of our delegates.
-                </p>
-            </div>
-
-            <div class="awards-heading">
-                <h3>Best Delegate Awards</h3>
-                <span>Committee awards</span>
-            </div>
-
-            <div class="awards-grid">
-
-                <article class="award-card">
-                    <div class="award-icon" aria-hidden="true">✧</div>
-
-                    <div class="award-info">
-                        <div class="committee-name">
-                            YOUR COMMITTEE
-                        </div>
-
-                        <h4 class="award-title">Best Delegate</h4>
-
-                        <p class="winner-name">WINNER'S NAME</p>
-
-                        <div class="award-divider"></div>
-                    </div>
-                </article>
-
-            </div>
-        </section>
+        Only publish verified award recipients.
         -->
 
     </main>
@@ -874,14 +1160,17 @@
             At NEX, we celebrate the dedication behind every speech,
             every thoughtful argument, every resolution, and every
             moment of leadership. Here's to the achievements still
-            waiting to be made.
+            waiting to be made!
         </p>
+
+        <button class="celebrate-btn" id="closingCelebrateBtn" type="button">
+            🎊 One More Celebration!
+        </button>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-logo">NEX</div>
-
         <p>NEX Debate Organization</p>
 
         <div class="footer-links">
@@ -896,34 +1185,254 @@
         <p>Celebrating ideas, leadership, and achievement.</p>
     </footer>
 
+    <!-- CELEBRATION AND SCROLL-REVEAL SCRIPT -->
     <script>
-        // Animate each conference section when it enters the screen.
-        // The page remains visible if the browser does not support
-        // IntersectionObserver.
+        (() => {
+            "use strict";
 
-        const conferenceSections = document.querySelectorAll(
-            ".conference-section"
-        );
+            const colors = [
+                "#C8A2FF",
+                "#9565D4",
+                "#F5A6D7",
+                "#FFD166",
+                "#B8F2E6",
+                "#FF91A4",
+                "#FFFFFF",
+                "#A7C7FF"
+            ];
 
-        if ("IntersectionObserver" in window) {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.animationPlayState = "running";
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.08 }
+            const emojis = ["✦", "✨", "🎉", "🎊", "♡", "✧"];
+            const reducedMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
             );
 
-            conferenceSections.forEach((section) => {
-                section.style.animationPlayState = "paused";
-                observer.observe(section);
+            // Create a colourful confetti blast from a point on the screen.
+            function launchConfetti(x, y, power = 1) {
+                if (reducedMotion.matches) {
+                    const message = document.createElement("div");
+                    message.textContent = "🎉 ✨ 🎊";
+                    message.setAttribute("aria-hidden", "true");
+
+                    message.style.cssText = `
+                        position:fixed;
+                        left:${x}px;
+                        top:${y}px;
+                        transform:translate(-50%,-50%);
+                        z-index:9999;
+                        font-size:28px;
+                        pointer-events:none;
+                    `;
+
+                    document.body.appendChild(message);
+                    window.setTimeout(() => message.remove(), 900);
+                    return;
+                }
+
+                const amount = Math.min(100, Math.round(34 * power));
+
+                for (let i = 0; i < amount; i++) {
+                    const piece = document.createElement("span");
+
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = (90 + Math.random() * 190) * power;
+
+                    const moveX = Math.cos(angle) * distance;
+                    const moveY = Math.sin(angle) * distance
+                        + 65 + Math.random() * 90;
+
+                    const width = 5 + Math.random() * 7;
+                    const height = 7 + Math.random() * 13;
+                    const duration = 850 + Math.random() * 900;
+                    const colour = colors[
+                        Math.floor(Math.random() * colors.length)
+                    ];
+
+                    piece.className = "confetti-piece";
+                    piece.setAttribute("aria-hidden", "true");
+
+                    if (Math.random() > .68) {
+                        piece.style.setProperty("--piece-radius", "50%");
+                        piece.style.setProperty("--piece-height", `${width}px`);
+                    }
+
+                    if (Math.random() > .7) {
+                        piece.style.setProperty("--piece-width", "5px");
+                        piece.style.setProperty("--piece-height", "20px");
+                        piece.style.setProperty("--piece-radius", "5px");
+                    } else {
+                        piece.style.setProperty("--piece-width", `${width}px`);
+                        piece.style.setProperty("--piece-height", `${height}px`);
+                    }
+
+                    piece.style.setProperty("--start-x", `${x}px`);
+                    piece.style.setProperty("--start-y", `${y}px`);
+                    piece.style.setProperty("--move-x", `${moveX}px`);
+                    piece.style.setProperty("--move-y", `${moveY}px`);
+                    piece.style.setProperty("--piece-color", colour);
+                    piece.style.setProperty(
+                        "--rotation",
+                        `${Math.random() * 1000 - 500}deg`
+                    );
+                    piece.style.setProperty("--duration", `${duration}ms`);
+
+                    document.body.appendChild(piece);
+
+                    window.setTimeout(() => piece.remove(), duration + 100);
+                }
+
+                // Add a popper emoji at the blast point.
+                const popper = document.createElement("span");
+                popper.className = "party-burst-emoji";
+                popper.textContent = "🎉";
+                popper.setAttribute("aria-hidden", "true");
+                popper.style.left = `${x}px`;
+                popper.style.top = `${y}px`;
+
+                document.body.appendChild(popper);
+                window.setTimeout(() => popper.remove(), 1000);
+            }
+
+            // Add floating sparkles for a surprise moment.
+            function launchSparkles(x, y, amount = 7) {
+                if (reducedMotion.matches) return;
+
+                for (let i = 0; i < amount; i++) {
+                    const sparkle = document.createElement("span");
+
+                    sparkle.className = "floating-celebration";
+                    sparkle.textContent = emojis[
+                        Math.floor(Math.random() * emojis.length)
+                    ];
+                    sparkle.setAttribute("aria-hidden", "true");
+                    sparkle.style.left = `${x + (Math.random() * 100 - 50)}px`;
+                    sparkle.style.top = `${y + (Math.random() * 50 - 25)}px`;
+                    sparkle.style.color = colors[
+                        Math.floor(Math.random() * colors.length)
+                    ];
+                    sparkle.style.animationDelay = `${Math.random() * .25}s`;
+
+                    document.body.appendChild(sparkle);
+                    window.setTimeout(() => sparkle.remove(), 2200);
+                }
+            }
+
+            // Make all four doodles interactive.
+            document.querySelectorAll(".party-doodle").forEach(doodle => {
+                doodle.addEventListener("click", event => {
+                    const x = event.clientX || window.innerWidth / 2;
+                    const y = event.clientY || window.innerHeight / 2;
+
+                    launchConfetti(x, y, 1);
+                    launchSparkles(x, y, 6);
+
+                    if (!reducedMotion.matches && doodle.animate) {
+                        doodle.animate(
+                            [
+                                { transform: "scale(1) rotate(0deg)" },
+                                { transform: "scale(1.4) rotate(18deg)" },
+                                { transform: "scale(1) rotate(0deg)" }
+                            ],
+                            { duration: 380, easing: "ease-out" }
+                        );
+                    }
+                });
             });
-        }
+
+            // Big celebration: centre blast plus two side blasts.
+            function bigCelebration() {
+                const centreX = window.innerWidth / 2;
+                const centreY = Math.min(window.innerHeight * .43, 350);
+
+                launchConfetti(centreX, centreY, 2.1);
+                launchSparkles(centreX, centreY, 12);
+
+                window.setTimeout(() => {
+                    launchConfetti(
+                        window.innerWidth * .24,
+                        window.innerHeight * .37,
+                        1.15
+                    );
+
+                    launchConfetti(
+                        window.innerWidth * .76,
+                        window.innerHeight * .37,
+                        1.15
+                    );
+                }, 220);
+
+                // Briefly change the page atmosphere.
+                document.body.classList.add("celebration-active");
+                window.setTimeout(() => {
+                    document.body.classList.remove("celebration-active");
+                }, 1400);
+            }
+
+            document.querySelectorAll(
+                "#celebrateBtn, #closingCelebrateBtn"
+            ).forEach(button => {
+                button.addEventListener("click", bigCelebration);
+            });
+
+            // Tapping a winner card triggers a mini celebration.
+            document.querySelectorAll(".award-card").forEach(card => {
+                card.addEventListener("click", event => {
+                    if (event.target.closest("a, button")) return;
+
+                    const x = event.clientX || (
+                        card.getBoundingClientRect().left
+                        + card.getBoundingClientRect().width / 2
+                    );
+
+                    const y = event.clientY || (
+                        card.getBoundingClientRect().top
+                        + card.getBoundingClientRect().height / 2
+                    );
+
+                    card.classList.remove("celebrating");
+                    void card.offsetWidth;
+                    card.classList.add("celebrating");
+
+                    launchConfetti(x, y, .65);
+                    launchSparkles(x, y, 5);
+
+                    window.setTimeout(() => {
+                        card.classList.remove("celebrating");
+                    }, 650);
+                });
+            });
+
+            // Reveal sections, headings, cards, and closing section on scroll.
+            const revealElements = document.querySelectorAll(
+                ".conference-header, .awards-heading, .award-card, .closing"
+            );
+
+            if ("IntersectionObserver" in window) {
+                if (!reducedMotion.matches) {
+                    revealElements.forEach(element => {
+                        element.classList.add("scroll-reveal");
+                    });
+                }
+
+                const revealObserver = new IntersectionObserver(
+                    entries => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("revealed");
+                                revealObserver.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: .12 }
+                );
+
+                revealElements.forEach(element => {
+                    revealObserver.observe(element);
+                });
+            }
+        })();
     </script>
+
 </body>
 </html>
+
 
