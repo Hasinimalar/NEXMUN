@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Celebrate the outstanding delegates of NEX Debate Organization through the NEX Awards Gallery.">
-
     <meta name="theme-color" content="#F5EEFF">
+
     <title>Awards Gallery | NEX Debate Organization</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,10 +21,10 @@
             --pale: #F5EEFF;
             --text: #382B49;
             --muted: #796B89;
-            --border: rgba(150, 101, 212, .22);
-            --glass: rgba(255, 255, 255, .78);
+            --border: rgba(150,101,212,.22);
+            --glass: rgba(255,255,255,.78);
             --pink: #F5A6D7;
-            --gold: #FFD166;
+            --gold: #FFD700;
             --mint: #B8F2E6;
             --blue: #A7C7FF;
         }
@@ -42,14 +41,14 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text);
             min-height: 100vh;
             overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
             background:
                 radial-gradient(ellipse at 8% 12%, rgba(215,190,255,.42), transparent 38%),
                 radial-gradient(ellipse at 90% 42%, rgba(233,218,255,.56), transparent 38%),
-                linear-gradient(145deg, #FCFAFF, #F6F0FF, #FFFAFF);
+                linear-gradient(145deg,#FCFAFF,#F6F0FF,#FFFAFF);
         }
 
         body::before {
@@ -58,17 +57,9 @@
             inset: 0;
             z-index: -2;
             pointer-events: none;
-            background-image:
-                radial-gradient(circle, rgba(200,162,255,.22) 1px, transparent 1.5px);
+            background-image: radial-gradient(circle,rgba(200,162,255,.22) 1px,transparent 1.5px);
             background-size: 29px 29px;
             opacity: .4;
-        }
-
-        body.celebration-active {
-            background:
-                radial-gradient(ellipse at 10% 10%, rgba(245,166,215,.28), transparent 35%),
-                radial-gradient(ellipse at 90% 40%, rgba(200,162,255,.4), transparent 38%),
-                linear-gradient(145deg, #FCFAFF, #F6F0FF, #FFFAFF);
         }
 
         a {
@@ -137,15 +128,11 @@
         }
 
         @keyframes backgroundFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(-10deg);
-            }
-            50% {
-                transform: translateY(-24px) rotate(14deg);
-            }
+            0%,100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-24px) rotate(14deg); }
         }
 
-        /* INTERACTIVE DOODLE BUTTONS */
+        /* INTERACTIVE PARTY DOODLES */
 
         .party-doodle {
             position: fixed;
@@ -156,7 +143,7 @@
             height: 54px;
             border: 1px solid rgba(255,255,255,.95);
             border-radius: 50%;
-            background: rgba(255,255,255,.82);
+            background: rgba(255,255,255,.86);
             box-shadow: 0 8px 28px rgba(117,77,170,.15);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -173,57 +160,114 @@
             box-shadow: 0 0 28px rgba(200,162,255,.8);
         }
 
-        .party-doodle:active {
-            transform: scale(.85);
-        }
-
-        .doodle-one {
-            top: 22%;
-            left: 17px;
-        }
-
-        .doodle-two {
-            top: 45%;
-            right: 18px;
-            animation-delay: -1.2s;
-        }
-
-        .doodle-three {
-            bottom: 20%;
-            left: 22px;
-            animation-delay: -2.1s;
-        }
-
-        .doodle-four {
-            bottom: 12%;
-            right: 23px;
-            animation-delay: -.8s;
-        }
+        .doodle-one { top: 22%; left: 17px; }
+        .doodle-two { top: 45%; right: 18px; animation-delay: -1.2s; }
+        .doodle-three { bottom: 20%; left: 22px; animation-delay: -2.1s; }
+        .doodle-four { bottom: 12%; right: 23px; animation-delay: -.8s; }
 
         @keyframes doodleFloat {
-            0%, 100% {
-                translate: 0 0;
-                rotate: -8deg;
+            0%,100% { transform: translateY(0) rotate(-8deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* FULL-SCREEN GOLDEN CONFETTI */
+
+        .gold-confetti-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            overflow: hidden;
+            pointer-events: none;
+            contain: layout paint;
+        }
+
+        .gold-paper {
+            position: absolute;
+            top: -35px;
+            left: var(--start-x);
+            width: var(--paper-width);
+            height: var(--paper-height);
+            background: linear-gradient(
+                135deg,
+                #FFFDE7 0%,
+                #FFE878 20%,
+                #FFD700 45%,
+                #FFB700 70%,
+                #FFF1A6 100%
+            );
+            border: 1px solid rgba(255,255,255,.65);
+            border-radius: 2px;
+            box-shadow: 0 0 7px rgba(255,196,0,.45);
+            opacity: 0;
+            will-change: transform, opacity;
+            animation: goldenRain var(--fall-time) var(--fall-delay) linear forwards;
+        }
+
+        .gold-paper.round {
+            border-radius: 50%;
+        }
+
+        .gold-paper.ribbon {
+            border-radius: 5px;
+            background: linear-gradient(90deg,#D99A00,#FFF0A0,#E6A900);
+        }
+
+        @keyframes goldenRain {
+            0% {
+                opacity: 0;
+                transform: translate3d(0,-5vh,0) rotate(0deg);
             }
-            50% {
-                translate: 0 -15px;
-                rotate: 10deg;
+            8% { opacity: 1; }
+            45% {
+                opacity: 1;
+                transform: translate3d(var(--drift),48vh,0) rotate(480deg);
+            }
+            85% { opacity: .95; }
+            100% {
+                opacity: 0;
+                transform: translate3d(var(--drift-end),115vh,0) rotate(1100deg);
             }
         }
 
-        /* CONFETTI PARTICLES */
+        .gold-sparkle {
+            position: absolute;
+            left: var(--sparkle-x);
+            top: var(--sparkle-y);
+            color: #FFD700;
+            font-size: var(--sparkle-size);
+            text-shadow: 0 0 10px #FFD700, 0 0 22px #FFF0A0;
+            opacity: 0;
+            animation: sparkleFlash var(--sparkle-time) ease-out forwards;
+        }
+
+        @keyframes sparkleFlash {
+            0% {
+                opacity: 0;
+                transform: scale(.2) rotate(0deg);
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1.4) rotate(45deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(.4) rotate(100deg);
+            }
+        }
+
+        /* MINI CONFETTI BURSTS */
 
         .confetti-piece {
             position: fixed;
-            z-index: 9999;
+            z-index: 99998;
             left: var(--start-x);
             top: var(--start-y);
-            width: var(--piece-width, 8px);
-            height: var(--piece-height, 13px);
-            border-radius: var(--piece-radius, 2px);
+            width: var(--piece-width,8px);
+            height: var(--piece-height,13px);
+            border-radius: var(--piece-radius,2px);
             background: var(--piece-color);
             pointer-events: none;
-            will-change: transform, opacity;
+            will-change: transform,opacity;
             animation: confettiBlast var(--duration) cubic-bezier(.12,.65,.25,1) forwards;
         }
 
@@ -232,48 +276,19 @@
                 opacity: 1;
                 transform: translate(-50%,-50%) scale(.3) rotate(0);
             }
-            20% {
-                opacity: 1;
-            }
+            20% { opacity: 1; }
             100% {
                 opacity: 0;
-                transform:
-                    translate(
-                        calc(-50% + var(--move-x)),
-                        calc(-50% + var(--move-y))
-                    )
-                    rotate(var(--rotation))
-                    scale(.75);
-            }
-        }
-
-        .party-burst-emoji {
-            position: fixed;
-            z-index: 9998;
-            pointer-events: none;
-            font-size: 38px;
-            filter: drop-shadow(0 5px 8px rgba(100,60,130,.15));
-            animation: popperBlast .9s ease-out forwards;
-        }
-
-        @keyframes popperBlast {
-            0% {
-                opacity: 0;
-                transform: translate(-50%,-50%) scale(.2) rotate(-25deg);
-            }
-            35% {
-                opacity: 1;
-                transform: translate(-50%,-70%) scale(1.5) rotate(12deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%,-150%) scale(.7) rotate(30deg);
+                transform: translate(
+                    calc(-50% + var(--move-x)),
+                    calc(-50% + var(--move-y))
+                ) rotate(var(--rotation)) scale(.75);
             }
         }
 
         .floating-celebration {
             position: fixed;
-            z-index: 9997;
+            z-index: 99997;
             pointer-events: none;
             font-size: 25px;
             animation: floatAway 1.8s ease-out forwards;
@@ -284,9 +299,7 @@
                 opacity: 0;
                 transform: translate(-50%,0) scale(.5) rotate(-20deg);
             }
-            20% {
-                opacity: 1;
-            }
+            20% { opacity: 1; }
             100% {
                 opacity: 0;
                 transform: translate(-50%,-140px) scale(1.4) rotate(35deg);
@@ -299,7 +312,7 @@
             position: sticky;
             top: 12px;
             z-index: 100;
-            width: min(1200px, calc(100% - 32px));
+            width: min(1200px,calc(100% - 32px));
             margin: 12px auto 0;
             padding: 13px 24px;
             display: flex;
@@ -314,13 +327,17 @@
             box-shadow: 0 8px 32px rgba(103,70,145,.09);
         }
 
+        .logo,
+        .footer-logo {
+            font-family: 'Great Vibes',cursive;
+            color: var(--lavender);
+            transition: transform .3s,color .3s;
+        }
+
         .logo {
-            font-family: 'Great Vibes', cursive;
             font-size: 43px;
             line-height: 1.1;
-            color: var(--lavender);
             white-space: nowrap;
-            transition: transform .3s, color .3s;
         }
 
         .logo:hover {
@@ -370,7 +387,7 @@
 
         .hero {
             position: relative;
-            width: min(1000px, calc(100% - 36px));
+            width: min(1000px,calc(100% - 36px));
             margin: auto;
             padding: 95px 0 58px;
             text-align: center;
@@ -378,14 +395,8 @@
         }
 
         @keyframes heroEntrance {
-            from {
-                opacity: 0;
-                transform: translateY(35px) scale(.97);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(35px) scale(.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .eyebrow {
@@ -404,35 +415,39 @@
         }
 
         @keyframes eyebrowGlow {
-            0%, 100% {
-                box-shadow: 0 0 0 rgba(200,162,255,0);
-            }
-            50% {
-                box-shadow: 0 0 23px rgba(200,162,255,.38);
-            }
+            0%,100% { box-shadow: 0 0 0 rgba(200,162,255,0); }
+            50% { box-shadow: 0 0 23px rgba(200,162,255,.38); }
         }
 
         .hero h1 {
-            font-size: clamp(38px, 6vw, 72px);
+            font-size: clamp(38px,6vw,72px);
             font-weight: 700;
             letter-spacing: -2px;
             line-height: 1.2;
             margin-bottom: 22px;
+            animation: titleFloat 3.8s ease-in-out infinite;
         }
 
         .hero h1 span {
             display: block;
-            color: var(--purple);
-            background: linear-gradient(100deg, #8050C5, #C08BFA, #9565D4, #D39EEB);
-            background-size: 250% auto;
+            color: transparent;
+            background: linear-gradient(
+                100deg,#8050C5,#C08BFA,#9565D4,#D39EEB,#FFD166,#9565D4
+            );
+            background-size: 300% auto;
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
-            animation: titleShimmer 6s linear infinite;
+            animation: titleShimmer 5s linear infinite;
+            filter: drop-shadow(0 5px 12px rgba(149,101,212,.13));
         }
 
         @keyframes titleShimmer {
-            to { background-position: 250% center; }
+            to { background-position: 300% center; }
+        }
+
+        @keyframes titleFloat {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
         }
 
         .hero p {
@@ -457,7 +472,7 @@
         .hero-decoration span {
             width: 52px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--lavender));
+            background: linear-gradient(90deg,transparent,var(--lavender));
         }
 
         .hero-decoration span:last-child {
@@ -465,11 +480,11 @@
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: .65; scale: 1; }
-            50% { opacity: 1; scale: 1.13; }
+            0%,100% { opacity: .65; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.13); }
         }
 
-        /* CELEBRATION BUTTON */
+        /* CELEBRATION BUTTONS */
 
         .celebrate-btn {
             display: inline-flex;
@@ -480,31 +495,20 @@
             padding: 16px 27px;
             border: 1px solid rgba(255,255,255,.9);
             border-radius: 100px;
-            background: linear-gradient(115deg, #8D5BD0, #C08BFA, #E3B5FF, #9565D4);
+            background: linear-gradient(115deg,#8D5BD0,#C08BFA,#E3B5FF,#9565D4);
             background-size: 250% 250%;
             color: white;
             font-size: 13px;
             font-weight: 700;
             cursor: pointer;
             box-shadow: 0 10px 28px rgba(141,91,208,.25);
-            animation: buttonShimmer 5s ease infinite, buttonEntrance 1s .3s both;
-            transition: transform .25s, box-shadow .25s;
+            animation: buttonShimmer 5s ease infinite;
+            transition: transform .25s,box-shadow .25s;
         }
 
         @keyframes buttonShimmer {
-            0%, 100% { background-position: 0% 50%; }
+            0%,100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
-        }
-
-        @keyframes buttonEntrance {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .celebrate-btn:hover {
@@ -522,14 +526,14 @@
         }
 
         @keyframes buttonSparkle {
-            0%, 100% { transform: rotate(0) scale(1); }
+            0%,100% { transform: rotate(0) scale(1); }
             50% { transform: rotate(18deg) scale(1.3); }
         }
 
         /* CONFERENCE QUICK LINKS */
 
         .conference-nav {
-            width: min(1000px, calc(100% - 36px));
+            width: min(1000px,calc(100% - 36px));
             margin: 0 auto 55px;
             display: flex;
             justify-content: center;
@@ -558,7 +562,7 @@
         /* CONFERENCE SECTIONS */
 
         .conference-section {
-            width: min(1120px, calc(100% - 36px));
+            width: min(1120px,calc(100% - 36px));
             margin: 0 auto 85px;
             scroll-margin-top: 110px;
         }
@@ -570,8 +574,8 @@
             margin-bottom: 30px;
             border-radius: 25px;
             background:
-                radial-gradient(circle at 90% 10%, rgba(255,255,255,.55), transparent 30%),
-                linear-gradient(125deg, #E9D8FF, #F8F1FF 65%, #E7D5FF);
+                radial-gradient(circle at 90% 10%,rgba(255,255,255,.55),transparent 30%),
+                linear-gradient(125deg,#E9D8FF,#F8F1FF 65%,#E7D5FF);
             border: 1px solid rgba(255,255,255,.95);
             box-shadow: 0 12px 35px rgba(101,69,144,.08);
             isolation: isolate;
@@ -616,11 +620,12 @@
         .conference-header h2 {
             position: relative;
             z-index: 1;
-            font-size: clamp(25px, 4vw, 37px);
+            font-size: clamp(25px,4vw,37px);
             line-height: 1.35;
             font-weight: 700;
             margin-bottom: 10px;
             overflow-wrap: anywhere;
+            animation: titleFloat 4s ease-in-out infinite;
         }
 
         .conference-header p {
@@ -654,7 +659,7 @@
 
         .awards-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0,1fr));
+            grid-template-columns: repeat(2,minmax(0,1fr));
             gap: 22px;
         }
 
@@ -673,10 +678,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             cursor: pointer;
-            transition:
-                transform .35s cubic-bezier(.2,.8,.2,1),
-                box-shadow .35s,
-                border-color .35s;
+            transition: transform .35s,box-shadow .35s,border-color .35s;
             animation: cardEntrance .8s cubic-bezier(.2,.8,.2,1) both;
         }
 
@@ -685,14 +687,8 @@
         .award-card:nth-child(4) { animation-delay: .36s; }
 
         @keyframes cardEntrance {
-            from {
-                opacity: 0;
-                transform: translateY(35px) scale(.94);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(35px) scale(.94); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .award-card::before {
@@ -702,7 +698,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(180deg, var(--lavender), var(--purple), var(--pink));
+            background: linear-gradient(180deg,var(--lavender),var(--purple),var(--pink),var(--gold));
             transform: scaleY(0);
             transform-origin: bottom;
             transition: transform .35s;
@@ -713,17 +709,17 @@
             position: absolute;
             top: 9px;
             right: 15px;
-            color: rgba(149,101,212,0);
+            color: transparent;
             font-size: 25px;
-            transition: color .3s, transform .4s;
+            transition: color .3s,transform .4s;
         }
 
         .award-card:hover {
-            transform: translateY(-9px) rotate(-.5deg);
+            transform: translateY(-10px) rotate(-.5deg) scale(1.015);
             box-shadow:
                 0 20px 45px rgba(101,69,144,.15),
-                0 0 0 2px rgba(200,162,255,.16);
-            border-color: rgba(166,128,220,.5);
+                0 0 22px rgba(255,215,0,.18);
+            border-color: rgba(230,189,66,.7);
         }
 
         .award-card:hover::before {
@@ -731,7 +727,7 @@
         }
 
         .award-card:hover::after {
-            color: var(--lavender);
+            color: var(--gold);
             transform: rotate(90deg) scale(1.25);
         }
 
@@ -740,9 +736,9 @@
         }
 
         @keyframes winnerCelebration {
-            0%, 100% { scale: 1; }
-            35% { scale: 1.045; }
-            70% { scale: .985; }
+            0%,100% { transform: scale(1); }
+            35% { transform: scale(1.045) rotate(-.5deg); }
+            70% { transform: scale(.985); }
         }
 
         .award-icon {
@@ -752,15 +748,15 @@
             width: 57px;
             height: 57px;
             border-radius: 17px;
-            background: linear-gradient(135deg, #EAD9FF, #F9F3FF);
+            background: linear-gradient(135deg,#EAD9FF,#F9F3FF);
             color: var(--deep-purple);
             font-size: 27px;
-            transition: transform .35s, background .35s;
+            transition: transform .35s,background .35s;
         }
 
         .award-card:hover .award-icon {
             transform: rotate(-10deg) scale(1.12);
-            background: linear-gradient(135deg, #F5D8FF, #EAD9FF, #FFF4D6);
+            background: linear-gradient(135deg,#F5D8FF,#EAD9FF,#FFF4D6);
         }
 
         .award-info {
@@ -790,6 +786,11 @@
             font-weight: 500;
             line-height: 1.7;
             overflow-wrap: anywhere;
+            transition: color .25s;
+        }
+
+        .award-card:hover .winner-name {
+            color: var(--purple);
         }
 
         .award-divider {
@@ -797,7 +798,7 @@
             height: 3px;
             margin-top: 13px;
             border-radius: 5px;
-            background: linear-gradient(90deg, var(--lavender), var(--pink));
+            background: linear-gradient(90deg,var(--lavender),var(--pink),var(--gold));
             transition: width .35s;
         }
 
@@ -810,9 +811,7 @@
         .scroll-reveal {
             opacity: 0;
             transform: translateY(28px) scale(.985);
-            transition:
-                opacity .8s ease,
-                transform .8s cubic-bezier(.2,.75,.25,1);
+            transition: opacity .8s ease,transform .8s cubic-bezier(.2,.75,.25,1);
         }
 
         .scroll-reveal.revealed {
@@ -825,13 +824,13 @@
         .closing {
             position: relative;
             overflow: hidden;
-            width: min(900px, calc(100% - 36px));
+            width: min(900px,calc(100% - 36px));
             margin: 0 auto 85px;
             padding: 48px 28px;
             text-align: center;
             background:
-                radial-gradient(circle at 10% 20%, rgba(245,166,215,.22), transparent 35%),
-                linear-gradient(135deg, rgba(235,220,255,.88), rgba(255,255,255,.86));
+                radial-gradient(circle at 10% 20%,rgba(245,166,215,.22),transparent 35%),
+                linear-gradient(135deg,rgba(235,220,255,.88),rgba(255,255,255,.86));
             border: 1px solid rgba(255,255,255,.98);
             border-radius: 28px;
             box-shadow: 0 12px 35px rgba(101,69,144,.07);
@@ -845,8 +844,9 @@
         }
 
         .closing h2 {
-            font-size: clamp(23px, 4vw, 34px);
+            font-size: clamp(23px,4vw,34px);
             margin-bottom: 12px;
+            animation: titleFloat 4s ease-in-out infinite;
         }
 
         .closing p {
@@ -867,15 +867,13 @@
         }
 
         .footer-logo {
-            font-family: 'Great Vibes', cursive;
             font-size: 36px;
-            color: var(--lavender);
             margin-bottom: 7px;
-            transition: color .3s;
         }
 
         .footer-logo:hover {
             color: var(--purple);
+            transform: scale(1.06);
         }
 
         footer p {
@@ -948,9 +946,7 @@
             }
 
             .awards-grid { grid-template-columns: 1fr; }
-
             .award-card { padding: 23px; }
-
             .closing { padding: 38px 22px; }
 
             .party-doodle {
@@ -964,6 +960,8 @@
             .doodle-three { left: 7px; }
             .doodle-four { right: 7px; }
         }
+
+        /* ACCESSIBILITY */
 
         @media (prefers-reduced-motion: reduce) {
             *,
@@ -995,18 +993,18 @@
         <span class="background-doodle">✧</span>
     </div>
 
-    <!-- INTERACTIVE DOODLES: TAP OR CLICK TO CELEBRATE -->
+    <!-- CLICKABLE CELEBRATION DOODLES -->
     <button class="party-doodle doodle-one" type="button"
-            aria-label="Launch a star confetti celebration">✦</button>
+            aria-label="Launch a golden confetti celebration">✦</button>
 
     <button class="party-doodle doodle-two" type="button"
-            aria-label="Launch a heart confetti celebration">♡</button>
+            aria-label="Launch a heart and golden confetti celebration">♡</button>
 
     <button class="party-doodle doodle-three" type="button"
-            aria-label="Launch a sparkle confetti celebration">✧</button>
+            aria-label="Launch a sparkle and golden confetti celebration">✧</button>
 
     <button class="party-doodle doodle-four" type="button"
-            aria-label="Launch a party popper celebration">🎉</button>
+            aria-label="Launch a full-page party popper celebration">🎉</button>
 
     <!-- NAVIGATION -->
     <nav aria-label="Main navigation">
@@ -1039,9 +1037,7 @@
         </p>
 
         <div class="hero-decoration" aria-hidden="true">
-            <span></span>
-            ✧
-            <span></span>
+            <span></span>✧<span></span>
         </div>
 
         <button class="celebrate-btn" id="celebrateBtn" type="button">
@@ -1064,9 +1060,7 @@
         <section class="conference-section" id="nexmun-youth-forum-2026">
 
             <div class="conference-header">
-                <div class="conference-label">
-                    Conference Awards · 2026
-                </div>
+                <div class="conference-label">Conference Awards · 2026</div>
 
                 <h2>NEXMUN Youth Forum 2026</h2>
 
@@ -1084,10 +1078,9 @@
 
             <div class="awards-grid">
 
-                <!-- UNEP -->
-                <article class="award-card">
+                <article class="award-card" tabindex="0"
+                         aria-label="UNEP Best Delegate: Andrei Stefaneanu">
                     <div class="award-icon" aria-hidden="true">🏆</div>
-
                     <div class="award-info">
                         <div class="committee-name">UNEP</div>
                         <h4 class="award-title">Best Delegate</h4>
@@ -1096,10 +1089,9 @@
                     </div>
                 </article>
 
-                <!-- AIPPM -->
-                <article class="award-card">
+                <article class="award-card" tabindex="0"
+                         aria-label="AIPPM Best Delegate: Kanak Thakur">
                     <div class="award-icon" aria-hidden="true">🏆</div>
-
                     <div class="award-info">
                         <div class="committee-name">AIPPM</div>
                         <h4 class="award-title">Best Delegate</h4>
@@ -1108,10 +1100,9 @@
                     </div>
                 </article>
 
-                <!-- MOM -->
-                <article class="award-card">
+                <article class="award-card" tabindex="0"
+                         aria-label="MOM Best Delegate: Sameera">
                     <div class="award-icon" aria-hidden="true">🏆</div>
-
                     <div class="award-info">
                         <div class="committee-name">MOM</div>
                         <h4 class="award-title">Best Delegate</h4>
@@ -1120,10 +1111,9 @@
                     </div>
                 </article>
 
-                <!-- JCC -->
-                <article class="award-card">
+                <article class="award-card" tabindex="0"
+                         aria-label="JCC Best Delegate: Dharnesh V.">
                     <div class="award-icon" aria-hidden="true">🏆</div>
-
                     <div class="award-info">
                         <div class="committee-name">JCC</div>
                         <h4 class="award-title">Best Delegate</h4>
@@ -1185,187 +1175,287 @@
         <p>Celebrating ideas, leadership, and achievement.</p>
     </footer>
 
-    <!-- CELEBRATION AND SCROLL-REVEAL SCRIPT -->
+    <!-- FULL-PAGE GOLDEN CELEBRATION SCRIPT -->
     <script>
         (() => {
             "use strict";
 
-            const colors = [
-                "#C8A2FF",
-                "#9565D4",
-                "#F5A6D7",
-                "#FFD166",
-                "#B8F2E6",
-                "#FF91A4",
-                "#FFFFFF",
-                "#A7C7FF"
-            ];
-
-            const emojis = ["✦", "✨", "🎉", "🎊", "♡", "✧"];
             const reducedMotion = window.matchMedia(
                 "(prefers-reduced-motion: reduce)"
             );
 
-            // Create a colourful confetti blast from a point on the screen.
-            function launchConfetti(x, y, power = 1) {
+            const miniColors = [
+                "#C8A2FF", "#9565D4", "#F5A6D7",
+                "#FFD700", "#B8F2E6", "#FF91A4",
+                "#FFFFFF", "#A7C7FF"
+            ];
+
+            const sparkleSymbols = ["✦", "✨", "🎉", "🎊", "♡", "✧"];
+
+            let activeGoldLayer = null;
+            let celebrationTimer = null;
+            let lastCelebration = 0;
+
+            /*
+             * THE MAIN EFFECT:
+             * Creates hundreds of golden paper pieces across
+             * the full viewport, falling from the top of the screen.
+             */
+            function launchGoldenRain(intensity = "big") {
+                const now = Date.now();
+
+                // Prevent accidental duplicate activations in the same instant.
+                if (now - lastCelebration < 350) return;
+                lastCelebration = now;
+
+                if (activeGoldLayer) {
+                    activeGoldLayer.remove();
+                    activeGoldLayer = null;
+                }
+
+                clearTimeout(celebrationTimer);
+
+                const layer = document.createElement("div");
+                layer.className = "gold-confetti-layer";
+                layer.setAttribute("aria-hidden", "true");
+                document.body.appendChild(layer);
+                activeGoldLayer = layer;
+
                 if (reducedMotion.matches) {
                     const message = document.createElement("div");
-                    message.textContent = "🎉 ✨ 🎊";
-                    message.setAttribute("aria-hidden", "true");
-
+                    message.textContent = "✨ Congratulations! 🎉";
                     message.style.cssText = `
                         position:fixed;
-                        left:${x}px;
-                        top:${y}px;
-                        transform:translate(-50%,-50%);
-                        z-index:9999;
-                        font-size:28px;
-                        pointer-events:none;
+                        z-index:100000;
+                        top:18%;
+                        left:50%;
+                        transform:translateX(-50%);
+                        padding:14px 20px;
+                        border-radius:30px;
+                        background:#FFF8D9;
+                        color:#583681;
+                        font-weight:700;
+                        text-align:center;
+                        box-shadow:0 5px 25px rgba(149,101,212,.2);
                     `;
+                    layer.appendChild(message);
 
-                    document.body.appendChild(message);
-                    window.setTimeout(() => message.remove(), 900);
+                    celebrationTimer = setTimeout(() => {
+                        layer.remove();
+                        if (activeGoldLayer === layer) activeGoldLayer = null;
+                    }, 1800);
+
                     return;
                 }
 
-                const amount = Math.min(100, Math.round(34 * power));
+                const isBig = intensity === "big";
+                const paperCount = isBig ? 480 : 300;
+
+                for (let i = 0; i < paperCount; i++) {
+                    const paper = document.createElement("span");
+
+                    const kind = Math.random();
+                    paper.className = "gold-paper";
+
+                    if (kind > .78) {
+                        paper.classList.add("round");
+                    } else if (kind < .16) {
+                        paper.classList.add("ribbon");
+                    }
+
+                    paper.style.setProperty(
+                        "--start-x",
+                        Math.random() * 100 + "vw"
+                    );
+
+                    paper.style.setProperty(
+                        "--paper-width",
+                        (kind < .16 ? 4 : 5 + Math.random() * 8) + "px"
+                    );
+
+                    paper.style.setProperty(
+                        "--paper-height",
+                        (kind < .16 ? 24 + Math.random() * 14 : 8 + Math.random() * 15) + "px"
+                    );
+
+                    paper.style.setProperty(
+                        "--fall-time",
+                        (2.7 + Math.random() * 3.2) + "s"
+                    );
+
+                    paper.style.setProperty(
+                        "--fall-delay",
+                        (Math.random() * (isBig ? 1.15 : .8)) + "s"
+                    );
+
+                    paper.style.setProperty(
+                        "--drift",
+                        (Math.random() * 260 - 130) + "px"
+                    );
+
+                    paper.style.setProperty(
+                        "--drift-end",
+                        (Math.random() * 340 - 170) + "px"
+                    );
+
+                    layer.appendChild(paper);
+                }
+
+                // Glowing gold stars sprinkled throughout the viewport.
+                const sparkleCount = isBig ? 65 : 35;
+
+                for (let i = 0; i < sparkleCount; i++) {
+                    const sparkle = document.createElement("span");
+                    sparkle.className = "gold-sparkle";
+                    sparkle.textContent = Math.random() > .5 ? "✦" : "✧";
+
+                    sparkle.style.setProperty(
+                        "--sparkle-x",
+                        Math.random() * 100 + "vw"
+                    );
+
+                    sparkle.style.setProperty(
+                        "--sparkle-y",
+                        Math.random() * 100 + "vh"
+                    );
+
+                    sparkle.style.setProperty(
+                        "--sparkle-size",
+                        (12 + Math.random() * 24) + "px"
+                    );
+
+                    sparkle.style.setProperty(
+                        "--sparkle-time",
+                        (1.2 + Math.random() * 1.8) + "s"
+                    );
+
+                    sparkle.style.animationDelay =
+                        (Math.random() * .8) + "s";
+
+                    layer.appendChild(sparkle);
+                }
+
+                celebrationTimer = setTimeout(() => {
+                    layer.remove();
+
+                    if (activeGoldLayer === layer) {
+                        activeGoldLayer = null;
+                    }
+                }, 7500);
+            }
+
+            // A smaller colourful explosion at a clicked position.
+            function launchMiniBurst(x, y, amount = 35) {
+                if (reducedMotion.matches) return;
 
                 for (let i = 0; i < amount; i++) {
                     const piece = document.createElement("span");
-
                     const angle = Math.random() * Math.PI * 2;
-                    const distance = (90 + Math.random() * 190) * power;
-
-                    const moveX = Math.cos(angle) * distance;
-                    const moveY = Math.sin(angle) * distance
-                        + 65 + Math.random() * 90;
-
+                    const distance = 65 + Math.random() * 160;
+                    const duration = 800 + Math.random() * 700;
                     const width = 5 + Math.random() * 7;
-                    const height = 7 + Math.random() * 13;
-                    const duration = 850 + Math.random() * 900;
-                    const colour = colors[
-                        Math.floor(Math.random() * colors.length)
-                    ];
+                    const height = 7 + Math.random() * 12;
 
                     piece.className = "confetti-piece";
                     piece.setAttribute("aria-hidden", "true");
 
-                    if (Math.random() > .68) {
-                        piece.style.setProperty("--piece-radius", "50%");
-                        piece.style.setProperty("--piece-height", `${width}px`);
-                    }
-
-                    if (Math.random() > .7) {
-                        piece.style.setProperty("--piece-width", "5px");
-                        piece.style.setProperty("--piece-height", "20px");
-                        piece.style.setProperty("--piece-radius", "5px");
-                    } else {
-                        piece.style.setProperty("--piece-width", `${width}px`);
-                        piece.style.setProperty("--piece-height", `${height}px`);
-                    }
-
-                    piece.style.setProperty("--start-x", `${x}px`);
-                    piece.style.setProperty("--start-y", `${y}px`);
-                    piece.style.setProperty("--move-x", `${moveX}px`);
-                    piece.style.setProperty("--move-y", `${moveY}px`);
-                    piece.style.setProperty("--piece-color", colour);
+                    piece.style.setProperty("--start-x", x + "px");
+                    piece.style.setProperty("--start-y", y + "px");
+                    piece.style.setProperty("--piece-width", width + "px");
+                    piece.style.setProperty("--piece-height", height + "px");
+                    piece.style.setProperty(
+                        "--piece-color",
+                        miniColors[Math.floor(Math.random() * miniColors.length)]
+                    );
+                    piece.style.setProperty(
+                        "--move-x",
+                        Math.cos(angle) * distance + "px"
+                    );
+                    piece.style.setProperty(
+                        "--move-y",
+                        Math.sin(angle) * distance + "px"
+                    );
                     piece.style.setProperty(
                         "--rotation",
-                        `${Math.random() * 1000 - 500}deg`
+                        (Math.random() * 900 - 450) + "deg"
                     );
-                    piece.style.setProperty("--duration", `${duration}ms`);
+                    piece.style.setProperty("--duration", duration + "ms");
+
+                    if (Math.random() > .6) {
+                        piece.style.setProperty("--piece-radius", "50%");
+                    }
 
                     document.body.appendChild(piece);
 
-                    window.setTimeout(() => piece.remove(), duration + 100);
+                    setTimeout(() => piece.remove(), duration + 100);
                 }
-
-                // Add a popper emoji at the blast point.
-                const popper = document.createElement("span");
-                popper.className = "party-burst-emoji";
-                popper.textContent = "🎉";
-                popper.setAttribute("aria-hidden", "true");
-                popper.style.left = `${x}px`;
-                popper.style.top = `${y}px`;
-
-                document.body.appendChild(popper);
-                window.setTimeout(() => popper.remove(), 1000);
             }
 
-            // Add floating sparkles for a surprise moment.
-            function launchSparkles(x, y, amount = 7) {
+            // Extra floating emoji and sparkles.
+            function launchSparkles(x, y, amount = 8) {
                 if (reducedMotion.matches) return;
 
                 for (let i = 0; i < amount; i++) {
                     const sparkle = document.createElement("span");
 
                     sparkle.className = "floating-celebration";
-                    sparkle.textContent = emojis[
-                        Math.floor(Math.random() * emojis.length)
+                    sparkle.textContent = sparkleSymbols[
+                        Math.floor(Math.random() * sparkleSymbols.length)
                     ];
+
                     sparkle.setAttribute("aria-hidden", "true");
-                    sparkle.style.left = `${x + (Math.random() * 100 - 50)}px`;
-                    sparkle.style.top = `${y + (Math.random() * 50 - 25)}px`;
-                    sparkle.style.color = colors[
-                        Math.floor(Math.random() * colors.length)
-                    ];
-                    sparkle.style.animationDelay = `${Math.random() * .25}s`;
+                    sparkle.style.left =
+                        (x + Math.random() * 100 - 50) + "px";
+                    sparkle.style.top =
+                        (y + Math.random() * 50 - 25) + "px";
+                    sparkle.style.color =
+                        miniColors[Math.floor(Math.random() * miniColors.length)];
+                    sparkle.style.animationDelay =
+                        Math.random() * .2 + "s";
 
                     document.body.appendChild(sparkle);
-                    window.setTimeout(() => sparkle.remove(), 2200);
+
+                    setTimeout(() => sparkle.remove(), 2200);
                 }
             }
 
-            // Make all four doodles interactive.
+            // Full-page celebration buttons.
+            function bigCelebration() {
+                launchGoldenRain("big");
+
+                const x = window.innerWidth / 2;
+                const y = Math.min(window.innerHeight * .43, 350);
+
+                launchMiniBurst(x, y, 65);
+                launchSparkles(x, y, 15);
+
+                // Two extra bursts make the celebration feel wider.
+                setTimeout(() => {
+                    launchMiniBurst(
+                        window.innerWidth * .2,
+                        window.innerHeight * .35,
+                        28
+                    );
+
+                    launchMiniBurst(
+                        window.innerWidth * .8,
+                        window.innerHeight * .35,
+                        28
+                    );
+                }, 180);
+            }
+
+            // Every floating doodle launches golden rain across the page.
             document.querySelectorAll(".party-doodle").forEach(doodle => {
                 doodle.addEventListener("click", event => {
                     const x = event.clientX || window.innerWidth / 2;
                     const y = event.clientY || window.innerHeight / 2;
 
-                    launchConfetti(x, y, 1);
-                    launchSparkles(x, y, 6);
-
-                    if (!reducedMotion.matches && doodle.animate) {
-                        doodle.animate(
-                            [
-                                { transform: "scale(1) rotate(0deg)" },
-                                { transform: "scale(1.4) rotate(18deg)" },
-                                { transform: "scale(1) rotate(0deg)" }
-                            ],
-                            { duration: 380, easing: "ease-out" }
-                        );
-                    }
+                    launchGoldenRain("big");
+                    launchMiniBurst(x, y, 45);
+                    launchSparkles(x, y, 10);
                 });
             });
-
-            // Big celebration: centre blast plus two side blasts.
-            function bigCelebration() {
-                const centreX = window.innerWidth / 2;
-                const centreY = Math.min(window.innerHeight * .43, 350);
-
-                launchConfetti(centreX, centreY, 2.1);
-                launchSparkles(centreX, centreY, 12);
-
-                window.setTimeout(() => {
-                    launchConfetti(
-                        window.innerWidth * .24,
-                        window.innerHeight * .37,
-                        1.15
-                    );
-
-                    launchConfetti(
-                        window.innerWidth * .76,
-                        window.innerHeight * .37,
-                        1.15
-                    );
-                }, 220);
-
-                // Briefly change the page atmosphere.
-                document.body.classList.add("celebration-active");
-                window.setTimeout(() => {
-                    document.body.classList.remove("celebration-active");
-                }, 1400);
-            }
 
             document.querySelectorAll(
                 "#celebrateBtn, #closingCelebrateBtn"
@@ -1373,35 +1463,48 @@
                 button.addEventListener("click", bigCelebration);
             });
 
-            // Tapping a winner card triggers a mini celebration.
+            // Tapping or keyboard-activating a winner card triggers a mini party.
             document.querySelectorAll(".award-card").forEach(card => {
-                card.addEventListener("click", event => {
-                    if (event.target.closest("a, button")) return;
+                function celebrateCard(event) {
+                    if (
+                        event &&
+                        event.type === "click" &&
+                        event.target.closest("a,button")
+                    ) return;
 
-                    const x = event.clientX || (
-                        card.getBoundingClientRect().left
-                        + card.getBoundingClientRect().width / 2
-                    );
+                    const rect = card.getBoundingClientRect();
 
-                    const y = event.clientY || (
-                        card.getBoundingClientRect().top
-                        + card.getBoundingClientRect().height / 2
-                    );
+                    const x = event && event.type === "click" && event.clientX
+                        ? event.clientX
+                        : rect.left + rect.width / 2;
+
+                    const y = event && event.type === "click" && event.clientY
+                        ? event.clientY
+                        : rect.top + rect.height / 2;
 
                     card.classList.remove("celebrating");
                     void card.offsetWidth;
                     card.classList.add("celebrating");
 
-                    launchConfetti(x, y, .65);
-                    launchSparkles(x, y, 5);
+                    launchMiniBurst(x, y, 25);
+                    launchSparkles(x, y, 6);
 
-                    window.setTimeout(() => {
+                    setTimeout(() => {
                         card.classList.remove("celebrating");
                     }, 650);
+                }
+
+                card.addEventListener("click", celebrateCard);
+
+                card.addEventListener("keydown", event => {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        celebrateCard(event);
+                    }
                 });
             });
 
-            // Reveal sections, headings, cards, and closing section on scroll.
+            // Reveal content as visitors scroll down.
             const revealElements = document.querySelectorAll(
                 ".conference-header, .awards-heading, .award-card, .closing"
             );
@@ -1413,20 +1516,21 @@
                     });
                 }
 
-                const revealObserver = new IntersectionObserver(
-                    entries => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add("revealed");
-                                revealObserver.unobserve(entry.target);
-                            }
-                        });
-                    },
-                    { threshold: .12 }
-                );
+                const revealObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("revealed");
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: .12 });
 
                 revealElements.forEach(element => {
                     revealObserver.observe(element);
+                });
+            } else {
+                revealElements.forEach(element => {
+                    element.classList.add("revealed");
                 });
             }
         })();
@@ -1434,5 +1538,3 @@
 
 </body>
 </html>
-
-
