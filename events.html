@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1531,6 +1530,121 @@ display:none;
 
 }
 
+
+/* =====================================================
+   ADVANCED JOURNEY ANIMATIONS
+===================================================== */
+.reveal-on-scroll{
+  opacity:0;
+  transform:translateY(34px) scale(.985);
+  filter:blur(4px);
+  transition:opacity .8s ease, transform .8s cubic-bezier(.2,.75,.2,1), filter .8s ease;
+  transition-delay:var(--reveal-delay, 0ms);
+}
+.reveal-on-scroll.is-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0);
+}
+.stat-card{
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.stat-card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  padding:1px;
+  background:linear-gradient(125deg,rgba(255,255,255,.95),rgba(192,132,252,.55),rgba(125,211,252,.5),rgba(255,255,255,.9));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .4s ease;
+}
+.stat-card:hover::before{opacity:1}
+.stat-number{font-variant-numeric:tabular-nums; text-shadow:0 0 22px rgba(192,132,252,.12)}
+.stat-card.is-counting .stat-number{animation:numberGlow 1.1s ease-in-out}
+@keyframes numberGlow{
+  0%,100%{text-shadow:0 0 0 rgba(192,132,252,0)}
+  50%{text-shadow:0 0 24px rgba(192,132,252,.55)}
+}
+.experience-card{position:relative;overflow:hidden}
+.experience-card::before{
+  content:"";
+  position:absolute;
+  top:-100%;left:-45%;
+  width:45%;height:300%;
+  transform:rotate(24deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  transition: left .8s ease;
+  pointer-events:none;
+}
+.experience-card:hover::before{left:130%}
+.journey-timeline{
+  max-width:1050px;
+  margin:85px auto 15px;
+  padding:48px 38px;
+  border-radius:38px;
+  background:rgba(255,255,255,.38);
+  border:1px solid rgba(255,255,255,.72);
+  backdrop-filter:blur(22px);
+  position:relative;
+  z-index:2;
+  overflow:hidden;
+}
+.journey-timeline h4{
+  font:400 38px 'DM Serif Display',serif;
+  color:#6d597a;
+  text-align:center;
+  margin-bottom:12px;
+}
+.journey-timeline .timeline-intro{
+  text-align:center;
+  color:#7b6d82;
+  line-height:1.8;
+  max-width:650px;
+  margin:0 auto 42px;
+}
+.timeline-track{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.timeline-track::before{
+  content:"";
+  position:absolute;top:16px;left:12%;right:12%;height:2px;
+  background:linear-gradient(90deg,#e8caff,#c084fc,#9bdcf7);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1.4s ease .25s;
+}
+.journey-timeline.is-visible .timeline-track::before{transform:scaleX(1)}
+.timeline-step{position:relative;padding-top:43px;text-align:center}
+.timeline-dot{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:22px;height:22px;border-radius:50%;
+  background:#c084fc;border:5px solid rgba(255,255,255,.95);
+  box-shadow:0 0 0 5px rgba(192,132,252,.16),0 0 24px rgba(192,132,252,.5);
+  z-index:1;
+}
+.timeline-step h5{font:400 24px 'DM Serif Display',serif;color:#6d597a;margin-bottom:10px}
+.timeline-step p{font-size:13px;line-height:1.85;color:#7b6d82}
+.timeline-kicker{
+  display:inline-block;margin-bottom:12px;padding:6px 12px;border-radius:30px;
+  background:rgba(192,132,252,.13);color:#a06ad8;font-size:10px;font-weight:700;letter-spacing:1.4px;
+}
+@media(max-width:700px){
+  .journey-timeline{padding:35px 22px;margin-top:60px}
+  .journey-timeline h4{font-size:30px}
+  .timeline-track{grid-template-columns:1fr;gap:25px}
+  .timeline-track::before{top:12px;bottom:12px;left:10px;right:auto;width:2px;height:auto;transform:scaleY(0);transform-origin:top}
+  .journey-timeline.is-visible .timeline-track::before{transform:scaleY(1)}
+  .timeline-step{text-align:left;padding:0 0 0 42px;min-height:90px}
+  .timeline-dot{top:3px;left:11px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+  .reveal-on-scroll{opacity:1;transform:none;filter:none}
+}
+
 </style>
 
 </head>
@@ -1890,6 +2004,36 @@ around curiosity, confidence, diplomacy and leadership.
      ENDING
 ===================================================== -->
 
+
+<!-- =====================================================
+     THE NEX JOURNEY TIMELINE
+===================================================== -->
+<section class="journey-timeline reveal-on-scroll" aria-labelledby="journey-timeline-title">
+  <h4 id="journey-timeline-title">A Journey in the Making</h4>
+  <p class="timeline-intro">Every first begins with an idea. These milestones tell the story of how the NEX vision moved towards its first conference.</p>
+  <div class="timeline-track">
+    <article class="timeline-step">
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <span class="timeline-kicker">THE VISION</span>
+      <h5>An Idea Takes Shape</h5>
+      <p>NEX began with a vision to create more spaces for young people to debate, express ideas and build confidence.</p>
+    </article>
+    <article class="timeline-step">
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <span class="timeline-kicker">THE PREPARATION</span>
+      <h5>Building the First Chapter</h5>
+      <p>Planning, teamwork and preparation brought the first NEXMUN experience closer to reality.</p>
+    </article>
+    <article class="timeline-step">
+      <span class="timeline-dot" aria-hidden="true"></span>
+      <span class="timeline-kicker">AUGUST 2026</span>
+      <h5>NEXMUN Youth Forum</h5>
+      <p>The first major milestone: students came together for committee discussions, debate, negotiation and collaboration.</p>
+    </article>
+  </div>
+</section>
+
+
 <div class="conference-ending">
 
 <div class="large">
@@ -1943,7 +2087,106 @@ help students discover the power of their own voice.
 </div>
 
 
+
+<script>
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal sections/cards as they enter the viewport, with a small stagger.
+  const revealItems = document.querySelectorAll(
+    '.conference-header, .conference-showcase, .stat-card, .committee-section, ' +
+    '.experience-card, .story-section, .journey-timeline, .conference-ending, .why-section'
+  );
+
+  revealItems.forEach((item, index) => {
+    item.classList.add('reveal-on-scroll');
+    if (item.classList.contains('stat-card') || item.classList.contains('experience-card')) {
+      item.style.setProperty('--reveal-delay', `${(index % 4) * 100}ms`);
+    }
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(item => item.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -45px 0px' });
+
+    revealItems.forEach(item => revealObserver.observe(item));
+  }
+
+  // Count each statistic up once when its card becomes visible.
+  const numberElements = document.querySelectorAll('.stat-number');
+  const animateCounter = (element) => {
+    if (element.dataset.counted === 'true') return;
+    element.dataset.counted = 'true';
+
+    const raw = element.textContent.trim().replace(/,/g, '');
+    const target = Number(raw);
+    if (!Number.isFinite(target)) return;
+
+    if (reduceMotion) {
+      element.textContent = raw;
+      return;
+    }
+
+    const decimals = (raw.split('.')[1] || '').length;
+    const duration = 1500;
+    const startTime = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = target * eased;
+      element.textContent = current.toFixed(decimals);
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        element.textContent = target.toFixed(decimals);
+        element.closest('.stat-card')?.classList.add('is-counting');
+      }
+    };
+    element.textContent = (0).toFixed(decimals);
+    requestAnimationFrame(step);
+  };
+
+  if ('IntersectionObserver' in window && !reduceMotion) {
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+
+    numberElements.forEach(element => counterObserver.observe(element));
+  } else {
+    numberElements.forEach(animateCounter);
+  }
+
+  // Gentle pointer tilt on desktop only; disabled on touch/reduced-motion devices.
+  if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.querySelectorAll('.stat-card').forEach(card => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(900px) rotateX(${y * -5}deg) rotateY(${x * 6}deg) translateY(-8px)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    });
+  }
+})();
+</script>
+
 </body>
 
 </html>
-```
